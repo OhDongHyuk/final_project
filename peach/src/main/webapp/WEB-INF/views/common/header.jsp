@@ -1,4 +1,77 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 
-<h1>헤더</h1>
+
+<div class="header">
+	<div class="header-top">
+		<div class="top-inner">
+			<ul class="inner-nav">
+				<c:if test="${user == null}">
+					<li class="inner-item"><a class="inner-link"
+						href="<c:url value='/member/signup' />">회원가입</a></li>
+					<li class="inner-item"><a class="inner-link"
+						href="<c:url value='/member/login'/>">로그인</a></li>
+						<li class="inner-item"><a class="inner-link"
+						href="<c:url value='/member/login'/>">12</a></li>
+						<li class="inner-item"><a class="inner-link"
+						href="<c:url value='/member/login'/>">로그345인</a></li>
+				</c:if>
+				<c:if test="${user != null }">
+					<li class="inner-item"><a class="inner-link"
+						href="<c:url value='/member/logout'/>">로그아웃</a></li>
+					<li class="inner-item"><a class="inner-link"
+						href="<c:url value='/board/list'/>">마이페이지</a></li>
+				</c:if>
+			</ul>
+		</div>
+		<div class="top-main">탑 메인박스 확인용</div>
+		<div class="top-bottom">탑 바텀 확인용</div>
+	</div>
+</div>
+
+
+<%-- 
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Brand/logo -->
+  <a class="navbar-brand" href="<c:url value='/' />">
+    <img src="<c:url value='/resources/img/logo.jpg'/>" alt="logo" style="width:40px;">
+  </a>
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
+  	<c:if test="${user == null}">
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/member/signup' />">회원가입</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/member/login'/>">로그인</a>
+	    </li>
+    </c:if>
+    <c:if test="${user != null }">
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/member/logout'/>">로그아웃</a>
+	    </li>
+    </c:if>
+      <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/board/list'/>">게시판</a>
+	   </li>
+	    
+	    
+	    <!-- Dropdown -->
+	<c:if test="${user != null && user.me_role == 'ADMIN' }">
+	    <li class="nav-item dropdown">
+	      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+	        관리자
+	      </a>
+    	  <div class="dropdown-menu">
+   		    <a class="dropdown-item" href="<c:url value='/admin/board/type'/>">게시판 관리 타입</a>
+          </div>
+	    </li>
+    </c:if>
+	    <li class="nav-item">
+		     <a class="nav-link" href="<c:url value='/mail'/>">메일보내기 테스트</a>
+		</li>
+    
+  </ul>
+</nav> --%>

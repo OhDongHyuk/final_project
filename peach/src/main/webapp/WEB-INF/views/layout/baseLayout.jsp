@@ -6,6 +6,9 @@
 <html>
 <head>
 <title>스프링</title>
+
+<link rel="stylesheet" href="<c:url value='/resources/css/styles.css'/>">
+
 </head>
 <body>
     <tiles:insertAttribute name="header"/>
