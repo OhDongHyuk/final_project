@@ -10,4 +10,8 @@ public class ProfileController {
     public String showProfilePage(Model model) {
         return "/board/profile"; 
     }
+    @GetMapping("/board/profile_management")
+    public String showProfileMangementPage(Model model) {
+        return "/board/profile_management"; 
+    }
 }

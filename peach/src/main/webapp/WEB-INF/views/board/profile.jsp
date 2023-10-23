@@ -69,7 +69,7 @@
  <div class="profile-imgbox">
   <img src="<c:url value='/resources/img/3.png'/>" class="example">
   <div class="profile-name">닉네임</div>
-  <button class="btn-profile" href="<c:url value='/' />">내 프로필 관리</button>
+  <button class="btn-profile" type="button" onclick="location.href='/peach/board/profile_management'">내 프로필 관리</button>
  </div>
  <div class="profile-Detail">
  	<div class="profile-namebox">
@@ -92,6 +92,8 @@
 		<div>상품명, 카테고리, 숫자</div>
 	</div>
 </div>
-
+<script>
+	
+</script>
 </body>
 </html>
