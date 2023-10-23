@@ -10,5 +10,11 @@
 </style>
 <body>
 	<h1>프로필 관리</h1>
+	<h2>사진</h2>
+<script>
+
+</script>
+
+
 </body>
 </html>
