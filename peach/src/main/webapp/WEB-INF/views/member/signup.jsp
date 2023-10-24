@@ -21,6 +21,7 @@
 						<label>비번</label> <input type="password" class="form-control"
 							name="me_pw" id="pw">
 					</div>
+					<div class="form-group">
 						<label>비번 확인</label> <input type="password" class="form-control"
 							name="me_pw2">
 					</div>
@@ -29,21 +30,25 @@
 							name="me_name">
 					</div>
 					<div class="form-group">
-						<label>계좌번호</label> <input type="text" class="form-control"
-							name="me_acc">
+						<label>닉네임</label> <input type="text" class="form-control"
+							name="me_nick">
 					</div>
 					<div class="form-group">
 						<label>핸드폰 번호</label> <input type="text" class="form-control"
 							name="me_phone">
 					</div>
 					<div class="form-group">
-						<label>닉네임</label> <input type="text" class="form-control"
-							name="me_nick">
+						<label>계좌번호</label> <input type="text" class="form-control"
+							name="me_acc">
 					</div>
-					<button class="btn btn-outline-warning col-12">회원가입</button>
+					<button class="btn btn-sighup btn-outline-warning col-12">회원가입</button>
 				</form>
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+	
+	</script>
 </body>
 </html>
