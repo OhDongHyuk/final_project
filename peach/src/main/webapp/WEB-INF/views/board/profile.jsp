@@ -89,7 +89,11 @@
 <div class="profile-product">
 	<div class="profile-product-list">
 		<img src="<c:url value='/resources/img/3.png'/>" class="example2">
-		<div>상품명, 카테고리, 숫자</div>
+		<div>
+			<c:forEach var="products" items="${products}">
+    			${products.sb_name}
+			</c:forEach>
+			,카테고리, 숫자</div>
 	</div>
 </div>
 <script>

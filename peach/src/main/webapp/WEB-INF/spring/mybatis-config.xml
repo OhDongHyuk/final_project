@@ -8,6 +8,7 @@
   	<typeAlias type="kr.ph.peach.vo.BoardVO" alias="BoardVO"/>
   	<typeAlias type="kr.ph.peach.vo.FileVO" alias="FileVO"/>
   	<typeAlias type="kr.ph.peach.vo.ProfileVO" alias="ProfileVO"/>
+  	<typeAlias type="kr.ph.peach.vo.ProductsVO" alias="ProductsVO"/>
   </typeAliases>
   
 </configuration>

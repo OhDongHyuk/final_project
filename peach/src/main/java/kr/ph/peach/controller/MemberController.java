@@ -22,11 +22,12 @@ public class MemberController {
 		return "/member/login";
 	}
 	@PostMapping(value="/member/login")
-	public String loginPost(Model model, MemberVO member) {
+	public String loginPost(Model model, MemberVO member, HttpSession session) {
 		//입력받은 회원정보와 일치하는 회원 정보가 있으면 가져오라고 요청
 		MemberVO user = memberService.login(member);
 		//가져왔으면 => 로그인 성공하면 
 		if(user != null) {
+			session.setAttribute("user", user);
 			model.addAttribute("user", user);
 			model.addAttribute("msg", "로그인 성공!");
 			model.addAttribute("url", "");

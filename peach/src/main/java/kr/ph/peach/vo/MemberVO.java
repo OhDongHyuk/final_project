@@ -20,8 +20,4 @@ public class MemberVO {
 	        this.me_pw = me_pw;
 	    }
 	 
-	 public MemberVO(String me_id) {
-	        this.me_id = me_id;
-	    }
-	 
 }
