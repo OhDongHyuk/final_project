@@ -7,7 +7,13 @@
 <head>
 <title>스프링</title>
 
-<link rel="stylesheet" href="<c:url value='/resources/css/styles.css'/>">
+
+ <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/css/LineIcons.3.0.css" />
+    <link rel="stylesheet" href="resources/css/tiny-slider.css" />
+    <link rel="stylesheet" href="resources/css/glightbox.min.css" />
+    <link rel="stylesheet" href="resources/css/main.css" />
 
 </head>
 <body>
