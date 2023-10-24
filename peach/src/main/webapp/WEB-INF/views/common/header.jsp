@@ -45,7 +45,7 @@
 				<div class="col-lg-4 col-md-4 col-12">
 					<div class="top-middle">
 						<ul class="useful-links">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="<c:url value='/'/>">Home</a></li>
 							<li><a href="about-us.html">중고 거래</a></li>
 							<li><a href="contact.html">피치 게시판</a></li>
 						</ul>
@@ -57,8 +57,20 @@
 							<i class="lni lni-user"></i> Hello
 						</div>
 						<ul class="user-login">
-							<li><a href="login.html">Sign In</a></li>
-							<li><a href="register.html">Register</a></li>
+							<c:if test="${user == null}">
+								<li class="inner-item"><a
+									href="<c:url value='/member/signup' />">회원가입</a></li>
+								<li class="inner-item"><a
+									href="<c:url value='/member/login'/>">로그인</a></li>
+							</c:if>
+							<c:if test="${user != null }">
+								<li class="inner-item"><a href="<c:url value='/'/>">로그아웃</a></li>
+								<li class="inner-item"><a href="<c:url value='/'/>">마이페이지</a></li>
+							</c:if>
+							<c:if test="${user != null && user.me_role == 'ADMIN' }">
+								<li class="inner-item"><a href="<c:url value='/'/>">로그아웃</a></li>
+								<li class="inner-item"><a href="<c:url value='/'/>">제품등록</a></li>
+							</c:if>
 						</ul>
 					</div>
 				</div>
@@ -105,6 +117,7 @@
 							<h3>안내문구 적는곳</h3>
 						</div>
 						<div class="navbar-cart">
+							<!-- 찜목록 구현 -->
 							<div class="wishlist">
 								<a href="#"> <i class="lni lni-heart"></i> <span
 									class="total-items">0</span>
@@ -125,23 +138,20 @@
 					<!-- Start Mega Category Menu -->
 					<!-- 카테고리 적는곳 -->
 					<div class="mega-category-menu">
-						<span class="cat-button"><i class="lni lni-menu"></i>All
-							Categories</span>
+						<span class="cat-button"><i class="lni lni-menu"></i>카테고리</span>
+						<c:forEach items="${category}" var="category">
+								<li><a href="product-grids.html">${category.sc_num }</a></li>
+						<%-- 	<li><a href="product-grids.html">accessories</a></li>
+							<select class="form-control" name="bo_bt_num">
+								<c:forEach items="${typeList}" var="type">
+									<option value="${type.bt_num }">${type.bt_title }</option>
+								</c:forEach>
+						 --%>	</select>
+						</c:forEach>
+
 						<ul class="sub-category">
 							<li><a href="product-grids.html">Electronics <i
 									class="lni lni-chevron-right"></i></a>
-								<ul class="inner-sub-category">
-									<li><a href="product-grids.html">Digital Cameras</a></li>
-									<li><a href="product-grids.html">Camcorders</a></li>
-									<li><a href="product-grids.html">Camera Drones</a></li>
-									<li><a href="product-grids.html">Smart Watches</a></li>
-									<li><a href="product-grids.html">Headphones</a></li>
-									<li><a href="product-grids.html">MP3 Players</a></li>
-									<li><a href="product-grids.html">Microphones</a></li>
-									<li><a href="product-grids.html">Chargers</a></li>
-									<li><a href="product-grids.html">Batteries</a></li>
-									<li><a href="product-grids.html">Cables & Adapters</a></li>
-								</ul></li>
 							<li><a href="product-grids.html">accessories</a></li>
 							<li><a href="product-grids.html">Televisions</a></li>
 							<li><a href="product-grids.html">best selling</a></li>
