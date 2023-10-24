@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	<a href="<c:url value='/salesboard/insert' />" style="color:black; text-decoration:none;">게시글등록</a> 
 </h1>
 
 </body>
