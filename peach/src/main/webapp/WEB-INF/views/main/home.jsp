@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="ko">
 <head>
-	<title>스프링</title>
+	<title>홈</title>
 </head>
 <body>
 <h1>

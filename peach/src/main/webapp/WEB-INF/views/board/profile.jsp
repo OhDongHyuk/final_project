@@ -68,16 +68,16 @@
 <div class="profile-container">
  <div class="profile-imgbox">
   <img src="<c:url value='/resources/img/3.png'/>" class="example">
-  <div class="profile-name">닉네임</div>
+  <div class="profile-name"><P>${user.me_id}</P></div>
   <button class="btn-profile" type="button" onclick="location.href='/peach/board/profile_management'">내 프로필 관리</button>
  </div>
  <div class="profile-Detail">
  	<div class="profile-namebox">
- 		<div class="profile-name">닉네임</div>
+ 		<div class="profile-name"><P>${user.me_id}</P></div>
  	</div>
  	<br/>
  	<div>
- 		가입일, 판매 중인 게시글 수, 판매 완료한 게시글 수, 회원 평점
+ 		가입일 : ${user.me_date}, 판매 중인 게시글 수, 판매 완료한 게시글 수, 회원 평점
  	</div>
  	<br/><br/><br/>
  	<div>

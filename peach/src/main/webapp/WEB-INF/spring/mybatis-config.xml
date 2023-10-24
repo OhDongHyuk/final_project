@@ -4,9 +4,10 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <typeAliases>
-  	<typeAlias type="kr.kh.edu.vo.MemberVO" alias="MemberVO"/>
-  	<typeAlias type="kr.kh.edu.vo.BoardVO" alias="BoardVO"/>
-  	<typeAlias type="kr.kh.edu.vo.FileVO" alias="FileVO"/>
+  	<typeAlias type="kr.ph.peach.vo.MemberVO" alias="MemberVO"/>
+  	<typeAlias type="kr.ph.peach.vo.BoardVO" alias="BoardVO"/>
+  	<typeAlias type="kr.ph.peach.vo.FileVO" alias="FileVO"/>
+  	<typeAlias type="kr.ph.peach.vo.ProfileVO" alias="ProfileVO"/>
   </typeAliases>
   
 </configuration>

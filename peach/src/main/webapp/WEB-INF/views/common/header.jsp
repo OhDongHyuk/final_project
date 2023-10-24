@@ -20,6 +20,14 @@
   	width: 100%;
   }
 </style>
+<ul class="navbar-nav">
+		<c:if test="${user == null }">
+			<li class="nav-item">
+			  	<a class="nav-link" href="<c:url value='/member/login'/>">로그인</a>
+			</li>
+		</c:if>
+</ul>
+
 <nav class="profile">
 	<a class="navbar-profile" href="<c:url value='/board/profile'/>" style="text-decoration: none; color: black;  text-align: right;">
 	<div>내 프로필</div>
