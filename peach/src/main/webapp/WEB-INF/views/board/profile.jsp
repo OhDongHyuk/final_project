@@ -104,6 +104,7 @@
 <div class="all-profile">
 	<div class="pp-box">
 		<div class="pp-balance">피치페이 잔액 : </div>
+		<button>피치페이 충전</button>
 		<button>피치페이 출금</button>
 	</div>
 	<br/>
@@ -119,16 +120,15 @@
 			 		<div class="profile-name"><P>${user.me_id}</P></div>
 			 	</div>
 			 	<br/>
-			 	<div>
-			 		가입일 : ${user.me_date} 판매 중 : 판매 완료 : 당도
+			 	<div style="display:inline;">
+			 		가입일 : ${user.me_date} 판매 중 : <text>${salingProducts.size()+tradingProducts.size()}</text> 판매 완료 : ${finishedProducts.size()}<text>${ss}</text> 당도 : 
 			 	</div>
 			 	<br/>
 			 	<form action="<c:url value='/board/profile'/>" method="post" enctype="multipart/form-data">
 			 		<div class="form-group">
-						<textarea class="form-control" placeholder="내용" name="bo_contents" style="min-height: 100px; width: 80%; margin-left: 20px"></textarea>
+						<h1>소개글</h1>
 					</div>
 			 	</form>
-					<button class= btn-pc>피치톡 신청</button>
 			 </div>
 		 </div>
 	</div>

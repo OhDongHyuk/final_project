@@ -5,5 +5,8 @@
 <mapper namespace="kr.ph.peach.dao.ProductsDAO">
 	<select id="getProductsById" resultType="kr.ph.peach.vo.ProductsVO">
     	SELECT * FROM sale_board WHERE sb_me_num = #{me_num}
+    	<if test="state != 0">
+    		and sb_ss_num = #{state}
+    	</if>
     </select>
 </mapper>

@@ -17,9 +17,9 @@ public class ProductsServiceImp implements ProductsService{
 	String uploadPath = "D:\\uploadfiles";
 
 	@Override
-	public List<ProductsVO> getProductsById(int me_num) {
+	public List<ProductsVO> getProductsById(int me_num, int state) {
 		System.out.println(me_num);
-		 List<ProductsVO> products = productsDao.getProductsById(me_num);
+		 List<ProductsVO> products = productsDao.getProductsById(me_num, state);
 		System.out.println(products);
 		  return products;
 	}
