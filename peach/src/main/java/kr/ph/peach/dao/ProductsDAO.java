@@ -9,4 +9,5 @@ import kr.ph.peach.vo.ProductsVO;
 public interface ProductsDAO {
 
 	List<ProductsVO> getProductsById(@Param("me_num") int me_num, @Param("state")int state);
+
 }

@@ -11,10 +11,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import kr.ph.peach.pagination.CriteriaProfile;
 import kr.ph.peach.service.ProductsService;
 import kr.ph.peach.service.ProfileService;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.ProductsVO;
+import kr.ph.peach.vo.ProfileVO;
 
 @Controller
 public class ProfileController {
@@ -26,7 +28,7 @@ public class ProfileController {
 	ProductsService productsService;
 	
     @GetMapping("/board/profile")
-    public String showProfilePage(Model model, HttpSession session) {
+    public String showProfilePage(Model model, HttpSession session, CriteriaProfile cri) {
     	MemberVO user = (MemberVO) session.getAttribute("user");
     	
         if (user != null) {
@@ -43,6 +45,7 @@ public class ProfileController {
             model.addAttribute("salingProducts",salingProducts);
             model.addAttribute("tradingProducts",tradingProducts);
             model.addAttribute("finishedProducts",finishedProducts);
+            
             
             /*System.out.println("확인용2");
             List<ProductsVO> ss = new ArrayList<>();

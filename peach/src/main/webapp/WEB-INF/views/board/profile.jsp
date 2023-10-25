@@ -90,7 +90,7 @@
 	}
 	.profile-product-detail-btn{
 		position: relative;
-		margin-left: 450px
+		width: 200px;
 	}
 	.profile-outDTbox {
 		padding-left: 15px;
@@ -98,6 +98,10 @@
 		flex: 1;
 		background-color: yellow;
 		border-radius: 0 20px 20px 0;
+	}
+	.profile-product-detail-text {
+		width: 630px;
+		
 	}
 </style>
 <body>
@@ -121,7 +125,7 @@
 			 	</div>
 			 	<br/>
 			 	<div style="display:inline;">
-			 		가입일 : ${user.me_date} 판매 중 : <text>${salingProducts.size()+tradingProducts.size()}</text> 판매 완료 : ${finishedProducts.size()}<text>${ss}</text> 당도 : 
+			 		가입일 : ${user.me_date} 판매 중 : <text>${salingProducts.size()+tradingProducts.size()}</text> 판매 완료 : ${finishedProducts.size()}<text>${ss}</text> 당도 : <text>${user.me_sugar}</text> 
 			 	</div>
 			 	<br/>
 			 	<form action="<c:url value='/board/profile'/>" method="post" enctype="multipart/form-data">
@@ -133,14 +137,14 @@
 		 </div>
 	</div>
 	<br>
+	<c:forEach var="products" items="${products}">
 	<div class="profile-product">
 		<div class="profile-product-list">
 			<img src="<c:url value='/resources/img/3.png'/>" class="example2">
 			<div class="profile-product-detail">
-				<c:forEach var="products" items="${products}">
-	    			${products.sb_name}
-				</c:forEach>
-				,카테고리, 숫자
+				<div class="profile-product-detail-text">
+	    			[제품명 : ${products.sb_name}] [카테고리 : ${products.sb_sc_num}]  [게시일 : ${products.sb_date}] 
+	    		</div>
 				<div class="profile-product-detail-btn">
 					<button>끌어올리기</button>
 					<button>수정</button>
@@ -149,6 +153,7 @@
 			</div>
 		</div>
 	</div>
+	</c:forEach>
 </div>	
 <script>
 	

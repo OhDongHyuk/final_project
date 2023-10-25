@@ -30,7 +30,7 @@
 
 <nav class="profile">
 	<a class="navbar-profile" href="<c:url value='/board/profile'/>" style="text-decoration: none; color: black;  text-align: right;">
-	<div>내 프로필</div>
+	<div>마이페이지</div>
 	</a>
 </nav>
 <nav class="banner">

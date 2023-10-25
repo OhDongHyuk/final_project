@@ -12,12 +12,14 @@ public class MemberVO {
 	String me_id;
 	String me_date;
 	String me_pw;
+	int me_sugar;
 	
-	 public MemberVO(int me_num, String me_id, String me_date, String me_pw) {
+	 public MemberVO(int me_num, String me_id, String me_date, String me_pw, int me_sugar) {
 	        this.me_num = me_num;
 	        this.me_id = me_id;
 	        this.me_date = me_date;
 	        this.me_pw = me_pw;
+	        this.me_sugar = me_sugar;
 	    }
 	 
 }
