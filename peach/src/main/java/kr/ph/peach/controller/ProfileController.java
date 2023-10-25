@@ -34,9 +34,15 @@ public class ProfileController {
             model.addAttribute("user", user);
             // 모델에 상품 정보 추가
             System.out.println("확인용1");
+            // 접속한 아이디에 따른 프로필 불러오기
             List<ProductsVO> products = productsService.getProductsById(user.getMe_num());
             System.out.println("확인용2");
             model.addAttribute("products", products);
+        } else {
+        	model.addAttribute("msg", "로그인을 필요로 합니다.");
+        	model.addAttribute("url", "member/login");
+        	System.out.println(user);
+        	return "/member/message";
         }
         
         return "/board/profile"; 
