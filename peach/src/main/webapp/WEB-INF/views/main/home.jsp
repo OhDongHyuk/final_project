@@ -45,7 +45,7 @@
 					<div class="col-lg-4 col-md-2 col-5">
 						<div class="middle-right-area">
 							<div class="nav-hotline">
-								<h3>안내문구 적는곳</h3>
+								<h3>${user.me_nick }님 환영합니다.</h3>
 							</div>
 							<div class="navbar-cart">
 								<!-- 찜목록 구현 -->

@@ -12,4 +12,6 @@
 		me_phone, me_acc)
 		values(#{member.me_id},#{member.me_pw},#{member.me_name},#{member.me_nick},#{member.me_phone},#{member.me_acc})
 	</insert>
+	
+	
 </mapper>
