@@ -65,6 +65,8 @@ public class MemberController {
 	
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request, Model model){
+		
+		
 		HttpSession session = request.getSession();
 		MemberVO user = (MemberVO)session.getAttribute("user");
 //		user.setMe_session_limit(null);
