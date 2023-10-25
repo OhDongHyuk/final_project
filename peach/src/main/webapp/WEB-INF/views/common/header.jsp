@@ -28,7 +28,7 @@
 						<div class="user">
 							<i class="lni lni-user"></i> Hello
 						</div>
-						<ul class="user-menu">
+						<ul class="user-login">
 							<c:if test="${user == NULL}">
 								<li class="inner-item"><a
 									href="<c:url value='/member/signup' />">회원가입</a></li>
