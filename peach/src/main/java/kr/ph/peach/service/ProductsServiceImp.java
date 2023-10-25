@@ -2,6 +2,8 @@ package kr.ph.peach.service;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,11 @@ public class ProductsServiceImp implements ProductsService{
 	@Autowired
 	ProductsDAO productsDao;
 
+	@Resource
+	String uploadPath;
+
+	@Resource
+	String uploadImgPath;
 	
 	@Override
 	public List<ProductsVO> getProductList(Criteria cri) {
