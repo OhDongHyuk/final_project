@@ -7,9 +7,10 @@
 	<title>스프링</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
-
+	<c:forEach items="${scgList}" var="scg">
+	    <ul class="category-list">
+	        <li><a href="/peach/sale/${scg.sc_num}">${scg.sc_name}</a></li>
+	    </ul>
+	</c:forEach>
 </body>
 </html>
