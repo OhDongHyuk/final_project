@@ -74,8 +74,7 @@ public class MemberServiceImp implements MemberService {
 		if(member.getMe_pw().equals(user.getMe_pw())) {
 			return user;
 		}
-		System.out.println(member);
-		System.out.println(user);
+		
 		return null;
 		
 		

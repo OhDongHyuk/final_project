@@ -54,9 +54,7 @@ public class MemberController {
 			//화면에서 선택/미선택한 자동로그인 여부를 user에 저장해서 인터셉터에게 전달 
 		user.setAutoLogin(member.isAutoLogin());
 		}
-		System.out.println(model);
-		System.out.println(member);
-		System.out.println(user);
+		
 		model.addAttribute("user", user);
 		model.addAttribute("msg", msg);
 		return "message";
