@@ -1,5 +1,6 @@
 package kr.ph.peach.vo;
 
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -32,4 +33,5 @@ public class MemberVO {
 		return format.format(me_date);
 	}
 	
+
 }

@@ -1,31 +1,51 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.ph.peach.dao.SaleBoardDAO">
 	<resultMap type="kr.ph.peach.vo.SaleBoardVO" id="SaleBoardVO">
-		<id property="sb_num" column="sb_num" />
-		<id property="sb_name" column="sb_name" />
-		<id property="sb_info" column="sb_info" />
-		<id property="sb_price" column="sb_price" />
-		<id property="sb_wish" column="sb_wish" />
-		<id property="sb_me_num" column="sb_me_num" />
-		<id property="sb_ss_num" column="sb_ss_num" />
-		<id property="sb_sc_num" column="sb_sc_num" />
-		<id property="sb_date" column="sb_date" />
+
+		<id property="sb_num" column="sb_num"/>
+		<result property="sb_name" column="sb_name"/>
+		<result property="sb_price" column="sb_price"/>
+		<result property="sb_info" column="sb_info"/>
+		<result property="sb_date" column="sb_date"/>
+		<result property="sb_wish" column="sb_wish"/>
+		<result property="sb_me_num" column="sb_me_num"/>
+		<result property="sb_ss_num" column="sb_ss_num"/>
+		<result property="sb_sc_num" column="sb_sc_num"/>
+		<collection property="saleImageVOList" ofType="kr.ph.peach.vo.SaleImageVO" column="sb_num" select="selectSaleBoardImageList"/>
 	</resultMap>
-
-	<select id="selectSaleBoardList"
-		resultMap="SaleBoardVO">
-		select * from sale_board order by sb_num desc
-		limit #{cri.pageStart},
-		#{cri.perPageNum}
+	<select id="selectSaleBoardList" resultMap="SaleBoardVO">
+		select
+			*
+		from
+			sale_board
+		where
+			sb_ss_num = 1
+			and sb_sc_num = #{cri.sc_num}
+		order by
+			sb_date desc
+		limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
-	<select id="selectSaleBoardCount" resultType="int">
-		select count(*) from
-		sale_board
+	<select id="getTotalCount" resultType="int">
+		select
+			count(*)
+		from
+			sale_board
+		left join
+			sale_category
+		on sb_sc_num = sc_num	
+		where
+			sb_ss_num = 1
+			and sb_sc_num = #{cri.sc_num}
 	</select>
-
-
-
+	<select id="selectImage" resultType="kr.ph.peach.vo.SaleImageVO">
+		select * from sale_image where sb_num = #{sb_num}
+	</select>
+	<select id="selectSaleBoardImageList" resultType="kr.ph.peach.vo.SaleImageVO">
+		select * from sale_image where si_key = #{sb_num} and si_table = "sale_board"
+	</select>
 </mapper>
+

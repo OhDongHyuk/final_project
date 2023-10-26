@@ -6,7 +6,7 @@ import kr.ph.peach.vo.MemberVO;
 
 public interface MemberDAO {
 
-	String getMemberFirst();
+	MemberVO selectMember(@Param("me_id")String me_id);
 
 	MemberVO selectMember(@Param("me_id")String me_id);
 

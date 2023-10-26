@@ -16,6 +16,7 @@ public class MemberServiceImp implements MemberService {
 	@Autowired
 	private MemberDAO memberDao;
 
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -90,6 +91,7 @@ public class MemberServiceImp implements MemberService {
 		}
 //		memberDao.updateMemberSession(user);
 		
+
 	}
 
 }
