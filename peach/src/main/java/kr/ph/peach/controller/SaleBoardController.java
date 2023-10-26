@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ph.peach.service.SaleBoardService;
 import kr.ph.peach.vo.SaleBoardVO;
@@ -35,6 +36,12 @@ public class SaleBoardController {
 		model.addAttribute("pm", pm);
 		model.addAttribute("prList",prList);
 		return "/sale/saleBoard";
+	}
+	
+	@RequestMapping("/sale/insert")
+	public String insert(Model model) {
+		
+		return "/sale/insert";
 	}
 
 }
