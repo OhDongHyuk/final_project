@@ -232,7 +232,7 @@
 								</div>
 							</div>
 							<div class="product-info">
-								<span class="category">${saleBoard.sb_sc_num}</span>
+								<span class="category">${saleBoard.saleCategoryVO.sc_name}</span>
 								<h4 class="title">
 									<a href="product-grids.html">${saleBoard.sb_name}</a>
 								</h4>

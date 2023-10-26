@@ -22,6 +22,10 @@ public class MemberVO {
 	private String me_ci_num; 
 	private String me_bk_name; 
 	private int me_point;
+	private String me_session_id;
+	private Date me_session_limit;
+	
+	private boolean autoLogin;
 	
 	
 	public String getme_date_str() {

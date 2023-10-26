@@ -11,4 +11,6 @@ public class SaleBoardVO {
 	private int sb_num, sb_price, sb_wish, sb_me_num, sb_ss_num, sb_sc_num;
 	private Date sb_date;
 	
+	private SaleCategoryVO saleCategoryVO;
+	
 }

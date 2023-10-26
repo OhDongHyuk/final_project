@@ -13,6 +13,7 @@
 		<id property="sb_ss_num" column="sb_ss_num" />
 		<id property="sb_sc_num" column="sb_sc_num" />
 		<id property="sb_date" column="sb_date" />
+		<collection property="saleCategoryVO" ofType="kr.ph.peach.vo.SaleCategoryVO" column="sb_sc_num" select="saleCategoryProduction"/>
 	</resultMap>
 
 	<select id="selectSaleBoardList"
@@ -25,6 +26,10 @@
 		select count(*) from
 		sale_board
 	</select>
+	<select id="saleCategoryProduction" resultType="kr.ph.peach.vo.SaleCategoryVO">
+		select * from sale_category where sc_num = #{sb_sc_num}
+	</select>
+	
 
 
 
