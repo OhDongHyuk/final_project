@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ProductsVO {
+public class SaleBoardVO {
 	private int sb_num;
 	private String sb_name;
 	private Integer sb_price;
@@ -22,9 +22,9 @@ public class ProductsVO {
 	private int sb_sc_num;
 	private String sb_me_nickname;
 	
-	private List<ImageVO> imageVOList;
+	private List<SaleImageVO> saleImageVOList;
 	
-	public ProductsVO(String sb_name, int sb_price, String sb_info, int sb_sc_num) {
+	public SaleBoardVO(String sb_name, int sb_price, String sb_info, int sb_sc_num) {
 		this.sb_name = sb_name;
 		this.sb_price = sb_price;
 		this.sb_info = sb_info;

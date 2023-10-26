@@ -5,13 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.ph.peach.service.ProductsService;
+import kr.ph.peach.service.SaleBoardService;
 
 @Controller
 public class MemberController {
 	
 	@Autowired
-	private ProductsService memberService;
+	private SaleBoardService memberService;
 	
 	
 }
