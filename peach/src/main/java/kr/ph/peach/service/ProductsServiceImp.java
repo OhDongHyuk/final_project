@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import kr.ph.peach.dao.ProductsDAO;
 import kr.ph.peach.vo.ProductsVO;
+import kr.ph.peach.vo.SaleCategoryVO;
 
 @Service
 public class ProductsServiceImp implements ProductsService{
@@ -24,4 +25,12 @@ public class ProductsServiceImp implements ProductsService{
 		  return products;
 	}
 
+	@Override
+	public List<SaleCategoryVO> getProductsByCTNum(int sb_sc_num) {
+		 List<SaleCategoryVO> saleCategory = productsDao.getCategoriesByScNum(sb_sc_num);
+		 System.out.println("saleCategory"+saleCategory);
+		    return saleCategory;
+	}
+	
+	
 }

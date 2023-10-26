@@ -137,13 +137,14 @@
 		 </div>
 	</div>
 	<br>
+	<br>
 	<c:forEach var="products" items="${products}">
 	<div class="profile-product">
 		<div class="profile-product-list">
 			<img src="<c:url value='/resources/img/3.png'/>" class="example2">
 			<div class="profile-product-detail">
 				<div class="profile-product-detail-text">
-	    			[제품명 : ${products.sb_name}] [카테고리 : ${products.sb_sc_num}]  [게시일 : ${products.sb_date}] 
+	    			[제품명 : ${products.sb_name}] [카테고리 : ${saleCategory}]  [게시일 : ${products.sb_date}] 
 	    		</div>
 				<div class="profile-product-detail-btn">
 					<button>끌어올리기</button>
@@ -153,6 +154,7 @@
 			</div>
 		</div>
 	</div>
+	<br>
 	</c:forEach>
 </div>	
 <script>

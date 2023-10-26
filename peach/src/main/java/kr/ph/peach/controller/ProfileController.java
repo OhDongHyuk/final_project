@@ -17,6 +17,7 @@ import kr.ph.peach.service.ProfileService;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.ProductsVO;
 import kr.ph.peach.vo.ProfileVO;
+import kr.ph.peach.vo.SaleCategoryVO;
 
 @Controller
 public class ProfileController {
@@ -45,8 +46,22 @@ public class ProfileController {
             model.addAttribute("salingProducts",salingProducts);
             model.addAttribute("tradingProducts",tradingProducts);
             model.addAttribute("finishedProducts",finishedProducts);
+            /*
+            List<SaleCategoryVO> saleCategory = productsService.getProductsByCTNum(products.get(0).getSb_sc_num());
+            System.out.println(saleCategory);
+            model.addAttribute("saleCategory",saleCategory);
+             */
+            List<SaleCategoryVO> saleCategory = new ArrayList<>();
             
-            
+            for (ProductsVO product : products) {
+                int sb_sc_num = product.getSb_sc_num();
+                System.out.println("ssn 확인용"+sb_sc_num);
+                List<SaleCategoryVO> categories = productsService.getProductsByCTNum(sb_sc_num);
+                saleCategory.addAll(categories);
+            }
+           
+            System.out.println(saleCategory);
+            model.addAttribute("saleCategory", saleCategory);
             /*System.out.println("확인용2");
             List<ProductsVO> ss = new ArrayList<>();
             for (ProductsVO product : products) {

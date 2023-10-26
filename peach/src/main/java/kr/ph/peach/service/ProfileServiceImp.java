@@ -16,6 +16,8 @@ public class ProfileServiceImp implements ProfileService{
 	@Autowired
 	private ProfileDao profileDao;
 
+
+
 	
 }
 	
