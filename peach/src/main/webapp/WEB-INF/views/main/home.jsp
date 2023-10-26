@@ -45,7 +45,7 @@
 					<div class="col-lg-4 col-md-2 col-5">
 						<div class="middle-right-area">
 							<div class="nav-hotline">
-								<h3>${user.me_nick }님 환영합니다.</h3>
+								<h3>${user.me_nick }님환영합니다.</h3>
 							</div>
 							<div class="navbar-cart">
 								<!-- 찜목록 구현 -->
@@ -253,53 +253,63 @@
 		</div>
 	</section>
 
-
-	<!-- Start Hero Area -->
-	<section class="hero-area">
+	<!-- Start Trending Product Area -->
+	<section class="trending-product section" style="margin-top: 12px;">
 		<div class="container">
 			<div class="row">
-				<c:forEach items="${list }" var="board">
-					<div class="col mb-5">
-						<div class="card h-100">
-							<!-- Sale badge-->
-							<div class="badge bg-dark text-white position-absolute"
-								style="top: 0.5rem; right: 0.5rem">Sale</div>
-							<!-- Product image-->
-							<c:forEach items="${board.fileVoList }" var="file">
-								<img class="card-img-top"
-									src="<c:url value='/download${file.fi_name}'/>" alt="..."
-									height="275" />
-							</c:forEach>
-							<!-- Product details-->
-							<div class="card-body p-4">
-								<div class="text-center">
-									<!-- Product name-->
-									<h5 class="fw-bolder">${board.bo_name}</h5>
-									리뷰개수(${board.bo_review })
-									<!-- Product reviews-->
-									<div
-										class="d-flex justify-content-center small text-warning mb-2">
-										<div class="bi-star-fill"></div>
-										<div class="text-primary">()</div>
-									</div>
-									<!-- Product price-->
-									${board.bo_price }원
-								</div>
+				<div class="col-12">
+					<div class="section-title">
+						<h2>Trending Product</h2>
+						<p>There are many variations of passages of Lorem Ipsum
+							available, but the majority have suffered alteration in some
+							form.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<!-- Start Single Product -->
+				<c:forEach items="${list }" var="saleBoard">
+					<div class="col-lg-3 col-md-6 col-12">
+						<div class="single-product">
+							<div class="product-image">
+								<!-- 	<img src="assets/images/products/product-1.jpg" alt="#">
+								<div class="button">
+									<a href="product-details.html" class="btn"><i
+										class="lni lni-cart"></i> Add to Cart</a>
+								</div> -->
 							</div>
-							<!-- Product actions-->
-							<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-								<div class="text-center">
-									<a class="btn btn-outline-dark mt-auto"
-										href="<c:url value='/board/detail${pm.cri.currentUrl}&bo_num=${board.bo_num}'/>">구매하기</a>
+							<div class="product-info">
+								<span class="category">Watches</span>
+								<h4 class="title">
+									<a href="product-grids.html">Xiaomi Mi Band 5</a>
+								</h4>
+								<ul class="review">
+									<li><i class="lni lni-star-filled"></i></li>
+									<li><i class="lni lni-star-filled"></i></li>
+									<li><i class="lni lni-star-filled"></i></li>
+									<li><i class="lni lni-star-filled"></i></li>
+									<li><i class="lni lni-star"></i></li>
+									<li><span>4.0 Review(s)</span></li>
+								</ul>
+								<div class="price">
+									<span>${saleBoard.sb_num}</span> <span>${saleBoard.sb_name}</span>
+									<span>${saleBoard.sb_info}</span> <span>${saleBoard.sb_price}</span>
+									<span>${saleBoard.sb_wish}</span> <span>${saleBoard.sb_me_num}</span>
+									<span>${saleBoard.sb_ss_num}</span> <span>${saleBoard.sb_sc_num}</span>
+									<span>${saleBoard.sb_date}</span>
 								</div>
 							</div>
 						</div>
+
+						<!-- End Single Product -->
 					</div>
 				</c:forEach>
+
+				<!-- End Single Product -->
 			</div>
 		</div>
 	</section>
-	<!-- End Hero Area -->
+	<!-- End Trending Product Area -->
 
 	<!-- Start Shipping Info -->
 	<section class="shipping-info">
@@ -349,7 +359,7 @@
 		</div>
 	</section>
 	<!-- End Shipping Info -->
-	
+
 	<script type="text/javascript">
 		//========= Hero Slider 
 		tns({

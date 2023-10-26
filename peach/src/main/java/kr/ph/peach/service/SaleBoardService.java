@@ -9,4 +9,6 @@ public interface SaleBoardService {
 
 	List<SaleBoardVO> getSaleBoardList(Criteria cri);
 
+	int getTotalCount(Criteria cri);
+
 }

@@ -32,7 +32,7 @@ public class HomeController {
 		
 		
 		PageMaker pm = new PageMaker(8, cri, totalCount);
-		
+		System.out.println(pm);
 		model.addAttribute("pm", pm);
 		model.addAttribute("list", list);
 		
