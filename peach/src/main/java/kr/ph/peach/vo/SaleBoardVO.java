@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class ProductsVO {
+public class SaleBoardVO {
 	
 	int sb_num;
 	String sb_name;
@@ -14,7 +14,7 @@ public class ProductsVO {
 	int sb_ss_num;
 	int sb_sc_num;
 	
-	public ProductsVO(int sb_num, String sb_name, String sb_date, int sb_me_num, int sb_ss_num, int sb_sc_num) {
+	public SaleBoardVO(int sb_num, String sb_name, String sb_date, int sb_me_num, int sb_ss_num, int sb_sc_num) {
         this.sb_num = sb_num;
         this.sb_name = sb_name;
         this.sb_date = sb_date;

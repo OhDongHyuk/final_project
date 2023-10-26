@@ -49,3 +49,7 @@
     <img src="<c:url value='/resources/img/3.png'/>" alt="logo" style="width:200px; height:100px;">
   </a>	
 </nav>
+<script>
+	let today = new Date();   
+	document.write(today)
+</script>
