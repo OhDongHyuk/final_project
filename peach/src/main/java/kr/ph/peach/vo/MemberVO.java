@@ -1,25 +1,37 @@
 package kr.ph.peach.vo;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-//기본생성자
-@NoArgsConstructor
 public class MemberVO {
+
+	private int me_num;
+	private String me_id;
+	private String me_pw; 
+	private String me_name;
+	private String me_acc;
+	private String me_phone;
+	private String me_nick; 
+	private String me_au;
+	private Date me_date; 
+	private String me_sugar; 
+	private String me_st_num; 
+	private String me_ci_num; 
+	private String me_bk_name; 
+	private int me_point;
 	
-	int me_num;
-	String me_id;
-	String me_date;
-	String me_pw;
-	int me_sugar;
 	
-	 public MemberVO(int me_num, String me_id, String me_date, String me_pw, int me_sugar) {
-	        this.me_num = me_num;
-	        this.me_id = me_id;
-	        this.me_date = me_date;
-	        this.me_pw = me_pw;
-	        this.me_sugar = me_sugar;
-	    }
-	 
+	public String getme_date_str() {
+		if(me_date == null) {
+			return "";
+		}
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		return format.format(me_date);
+	}
+	
+
 }

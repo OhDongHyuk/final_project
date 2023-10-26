@@ -14,4 +14,5 @@ public interface SaleBoardDAO {
 
 	List<SaleBoardVO> selectSaleBoardList(@Param("cri")Criteria cri);
 
+
 }

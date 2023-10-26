@@ -40,4 +40,5 @@ public class SaleBoardVO {
 		SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return timeFormat.format(sb_date);
 	}	
+
 }

@@ -45,5 +45,16 @@
 	</beans:bean>
 
 	
+	<beans:bean id="loginInterceptor" class="kr.ph.peach.interceptor.LoginInterceptor"></beans:bean>
+	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/login"/>
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>
+		
+	</interceptors>
+	
+	
 	
 </beans:beans>

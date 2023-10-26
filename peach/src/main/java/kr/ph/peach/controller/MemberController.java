@@ -1,5 +1,8 @@
 package kr.ph.peach.controller;
 
+C
+import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +11,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ph.peach.service.MemberService;
+import kr.ph.peach.util.Message;
 import kr.ph.peach.vo.MemberVO;
 
 
 @Controller
+@RequestMapping("/member")
 public class MemberController {
 	
 	@Autowired
@@ -21,26 +27,65 @@ public class MemberController {
 	private MemberService memberService;
 
 	
-	@GetMapping(value="/member/login")
+
+	@GetMapping("/signup")
+	public String signup() {
+		
+		return "/member/signup";
+	}
+	
+	@PostMapping(value="/signup")
+	public String signupPost(MemberVO member, Model model) {
+		Message msg = new Message("/member/signup", "회원 가입에 실패했습니다.");
+		
+		if(memberService.signup(member)) {
+			msg = new Message("/", "회원 가입에 성공했습니다.");
+		}
+		model.addAttribute("msg", msg);
+		return "message";
+	}
+	@GetMapping("/login")
 	public String login() {
+		
 		return "/member/login";
 	}
-	@PostMapping(value="/member/login")
-	public String loginPost(Model model, MemberVO member, HttpSession session) {
-		//입력받은 회원정보와 일치하는 회원 정보가 있으면 가져오라고 요청
+	@PostMapping("/login")
+	public String loginPost(MemberVO member, Model model) {
+		
+		Message msg = new Message("/member/login", "로그인에 실패했습니다.");
+		//DB에서 로그인 정보를 이용하여 가져온 회원정보. 자동로그인 여부가 없음
 		MemberVO user = memberService.login(member);
-		//가져왔으면 => 로그인 성공하면 
+		System.out.println(user);
 		if(user != null) {
-			session.setAttribute("user", user);
-			model.addAttribute("user", user);
-			model.addAttribute("msg", "로그인 성공!");
-			model.addAttribute("url", "");
-		}else {
-			model.addAttribute("msg", "로그인 실패!");
-			model.addAttribute("url", "member/login");
-			System.out.println(user);
+			msg = new Message("", "로그인에 성공했습니다.");
+			//화면에서 선택/미선택한 자동로그인 여부를 user에 저장해서 인터셉터에게 전달 
+//			user.setAutoLogin(member.isAutoLogin());
 		}
-		return "/member/message";
+		System.out.println(model);
+		System.out.println(member);
+		System.out.println(user);
+		model.addAttribute("user", user);
+		model.addAttribute("msg", msg);
+		return "message";
+		
+	}
+	
+	@GetMapping("/logout")
+	public String logout(HttpServletRequest request, Model model){
+		
+		
+		HttpSession session = request.getSession();
+		MemberVO user = (MemberVO)session.getAttribute("user");
+//		user.setMe_session_limit(null);
+		memberService.updateMemberSession(user);
+		Message msg = new Message("/", null);
+		if(user != null) {
+			session.removeAttribute("user");
+			msg.setMsg("로그아웃에 성공했습니다.");
+		}
+		model.addAttribute("msg", msg);
+		return "message";
+
 	}
 	
 }

@@ -13,10 +13,11 @@ public class SaleCategoryServiceImp implements SaleCategoryService{
 
 	@Autowired
 	SaleCategoryDAO saleCategoryDao;
-
+  
 	@Override
 	public List<SaleCategoryVO> getSaleCategoryList() {
 		return saleCategoryDao.selectSaleCategoryList();
+
 	}
 
 }
