@@ -13,17 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import kr.ph.peach.pagination.CriteriaProfile;
 import kr.ph.peach.service.ProductsService;
-import kr.ph.peach.service.ProfileService;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.ProductsVO;
-import kr.ph.peach.vo.ProfileVO;
 import kr.ph.peach.vo.SaleCategoryVO;
 
 @Controller
 public class ProfileController {
-	
-	@Autowired
-	ProfileService profileService;
 	
 	@Autowired
 	ProductsService productsService;
@@ -51,17 +46,22 @@ public class ProfileController {
             System.out.println(saleCategory);
             model.addAttribute("saleCategory",saleCategory);
              */
-            List<SaleCategoryVO> saleCategory = new ArrayList<>();
             
+            List<String> saleCategory = new ArrayList<>();
+
             for (ProductsVO product : products) {
                 int sb_sc_num = product.getSb_sc_num();
-                System.out.println("ssn 확인용"+sb_sc_num);
+                System.out.println("ssn 확인용" + sb_sc_num);
                 List<SaleCategoryVO> categories = productsService.getProductsByCTNum(sb_sc_num);
-                saleCategory.addAll(categories);
+                for (SaleCategoryVO category : categories) {
+                    saleCategory.add(category.getSc_name());
+                }
             }
-           
             System.out.println(saleCategory);
             model.addAttribute("saleCategory", saleCategory);
+            
+            
+            
             /*System.out.println("확인용2");
             List<ProductsVO> ss = new ArrayList<>();
             for (ProductsVO product : products) {

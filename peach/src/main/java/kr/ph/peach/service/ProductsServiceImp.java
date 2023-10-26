@@ -27,9 +27,9 @@ public class ProductsServiceImp implements ProductsService{
 
 	@Override
 	public List<SaleCategoryVO> getProductsByCTNum(int sb_sc_num) {
-		 List<SaleCategoryVO> saleCategory = productsDao.getCategoriesByScNum(sb_sc_num);
-		 System.out.println("saleCategory"+saleCategory);
-		    return saleCategory;
+		 List<SaleCategoryVO> category = productsDao.getCategoriesByScNum(sb_sc_num);
+		 System.out.println("saleCategory"+category);
+		    return category;
 	}
 	
 	
