@@ -245,14 +245,10 @@
 									<li><span>4.0 Review(s)</span></li>
 									<span>/ 좋아요 ${saleBoard.sb_wish} </span>
 								</ul>
-								<div class="item-info">
-								${saleBoard.sb_info}
-								</div>
-								<div>
-								
-								</div>
+								<div class="item-info">${saleBoard.sb_info}</div>
+								<div></div>
 								<div class="price">
-								<span>${saleBoard.sb_price}원</span>
+									<span>${saleBoard.sb_price}원</span>
 								</div>
 								<%-- 	<span>${saleBoard.sb_num}</span> <span>${saleBoard.sb_name}</span>
 									<span>${saleBoard.sb_info}</span> <span>${saleBoard.sb_price}</span>
