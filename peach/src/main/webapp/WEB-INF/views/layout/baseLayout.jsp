@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/tiny-slider.css'/>" />
     <link rel="stylesheet" href="<c:url value='/resources/css/glightbox.min.css'/>" />
     <link rel="stylesheet" href="<c:url value='/resources/css/main.css'/>" />
+    
 
 </head>
 <body>

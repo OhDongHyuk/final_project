@@ -4,6 +4,7 @@
 <!doctype html>
 <html lang="ko">
 <head>
+
 <title>스프링</title>
 </head>
 <body>
@@ -316,7 +317,10 @@
 		</div>
 	</section>
 	<!-- End Shipping Info -->
-
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/tiny-slider.js"></script>
+	<script src="resources/js/glightbox.min.js"></script>
+	<script src="resources/js/main.js"></script>
 	<script type="text/javascript">
 		//========= Hero Slider 
 		tns({
