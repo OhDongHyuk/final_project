@@ -325,7 +325,10 @@
 		//========= Hero Slider 
 		/*
 		참고사이트
-		https://ganlanyuan.github.io/tiny-slider/demo/#customize_wrapper 
+		https://ganlanyuan.github.io/tiny-slider/demo/#customize_wrapper
+		- 데모사이트
+		https://github.com/ganlanyuan/tiny-slider
+		- 개발자 깃헙
 		*/
 		tns({
 			container : '.hero-slider',
