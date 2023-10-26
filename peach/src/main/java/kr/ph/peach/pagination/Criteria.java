@@ -3,20 +3,20 @@ package kr.ph.peach.pagination;
 import lombok.Data;
 
 @Data
-public class CriteriaProfile {
+public class Criteria {
 	private int page; //현재 페이지
 	private int perPageNum; //한 페이지에서 컨텐츠 개수
 	private String s;
 	private String t;
 	
-	public CriteriaProfile() {
+	public Criteria() {
 		page = 1;
-		perPageNum = 5;
+		perPageNum = 10;
 		t = "all";
 		s = "";
 	}
 	
-	public CriteriaProfile(int page, int perPageNum) {
+	public Criteria(int page, int perPageNum) {
 		this.page = page;
 		this.perPageNum = perPageNum;
 		t = "all";

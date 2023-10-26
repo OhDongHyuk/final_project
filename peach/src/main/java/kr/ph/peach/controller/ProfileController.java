@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import kr.ph.peach.pagination.CriteriaProfile;
+import kr.ph.peach.pagination.ProfileCriteria;
 import kr.ph.peach.service.ProfileService;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
@@ -24,7 +24,7 @@ public class ProfileController {
 	ProfileService profileService;
 	
     @GetMapping("/board/profile")
-    public String showProfilePage(Model model, HttpSession session, CriteriaProfile cri) {
+    public String showProfilePage(Model model, HttpSession session, ProfileCriteria cri) {
     	MemberVO user = (MemberVO) session.getAttribute("user");
     	
         if (user != null) {
