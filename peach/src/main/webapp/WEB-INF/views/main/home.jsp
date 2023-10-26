@@ -4,10 +4,11 @@
 <!doctype html>
 <html lang="ko">
 <head>
-	<title>스프링</title>
+	<title>홈</title>
 </head>
 <body>
 <h1>
+
 	<a href="<c:url value='/salesboard/insert' />" style="color:black; text-decoration:none;">게시글등록</a> 
 </h1>
 	<c:forEach items="${scgList}" var="scg">

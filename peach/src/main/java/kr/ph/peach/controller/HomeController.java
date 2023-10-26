@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import kr.ph.peach.service.SaleCategoryService;
 import kr.ph.peach.vo.SaleCategoryVO;
 
-
-
 @Controller
 public class HomeController {
 	
@@ -25,7 +23,10 @@ public class HomeController {
 		List<SaleCategoryVO> scgList = saleCategoryService.getSaleCategoryList();
 	
 		model.addAttribute("scgList",scgList);
+
 		return "/main/home";
 	}
-
 }
+
+
+
