@@ -8,7 +8,14 @@
 </head>
 <body>
 <h1>
-	홈
+
+	<a href="<c:url value='/salesboard/insert' />" style="color:black; text-decoration:none;">게시글등록</a> 
 </h1>
+	<c:forEach items="${scgList}" var="scg">
+	    <ul class="category-list">
+	        <li><a href="/peach/sale/${scg.sc_num}">${scg.sc_name}</a></li>
+	    </ul>
+	</c:forEach>
+
 </body>
 </html>
