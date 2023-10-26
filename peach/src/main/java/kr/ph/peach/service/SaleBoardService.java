@@ -2,14 +2,25 @@ package kr.ph.peach.service;
 
 import java.util.List;
 
+import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
-import pagination.Criteria;
-import pagination.SaleBoardCriteria;
+import kr.ph.peach.vo.SaleCategoryVO;
 
 public interface SaleBoardService {
 
-	List<SaleBoardVO> getSaleBoardList(Criteria cri);
+	boolean insertBoard(SaleBoardVO saleBoard, MemberVO user);
 
-	int getTotalCount(SaleBoardCriteria cri);
+	List<SaleCategoryVO> selectAllCategory();
 
+	List<SaleBoardVO> selectAllBoard();
+
+	String selectMemberNickname(int sb_me_num);
+
+	SaleBoardVO selectBoard(Integer sb_num);
+
+	String selectCategoryName(int sb_sc_num);
+
+	int selectMemberSugar(int sb_me_num);
+
+	
 }

@@ -7,14 +7,10 @@
 	<title>스프링</title>
 </head>
 <body>
-<h1>
+<h1> 
 	<a href="<c:url value='/salesboard/insert' />" style="color:black; text-decoration:none;">게시글등록</a> 
+	<a href="<c:url value='/salesboard/list' />" style="color:black; text-decoration:none;">게시글보기</a> 
 </h1>
-	<c:forEach items="${scgList}" var="scg">
-	    <ul class="category-list">
-	        <li><a href="/peach/sale/${scg.sc_num}">${scg.sc_name}</a></li>
-	    </ul>
-	</c:forEach>
 
 </body>
 </html>

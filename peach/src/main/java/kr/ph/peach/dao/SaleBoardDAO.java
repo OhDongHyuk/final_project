@@ -5,13 +5,22 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import kr.ph.peach.vo.SaleBoardVO;
-import pagination.Criteria;
-import pagination.SaleBoardCriteria;
+import kr.ph.peach.vo.SaleCategoryVO;
 
 public interface SaleBoardDAO {
 
-	int getTotalCount(@Param("cri")SaleBoardCriteria cri);
+	boolean insertBoard(@Param("salesBoard")SaleBoardVO salesBoard);
 
-	List<SaleBoardVO> selectSaleBoardList(@Param("cri")Criteria cri);
+	List<SaleCategoryVO> selectAllCategory();
+
+	List<SaleBoardVO> selectAllBoard();
+
+	String selectMemberNickname(int sb_me_num);
+
+	SaleBoardVO selectBoard(Integer sb_num);
+
+	String selectCategoryName(int sb_sc_num);
+
+	int selectMemberSugar(int sb_me_num);
 
 }
