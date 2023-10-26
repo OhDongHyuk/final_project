@@ -7,16 +7,16 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.ph.peach.dao.ProductsDAO;
-import kr.ph.peach.vo.ProductsVO;
+import kr.ph.peach.dao.SaleBoardDAO;
+import kr.ph.peach.vo.SaleBoardVO;
 import pagination.Criteria;
-import pagination.ProductsCriteria;
+import pagination.SaleBoardCriteria;
 
 @Service
-public class ProductsServiceImp implements ProductsService{
+public class SaleBoardServiceImp implements SaleBoardService{
 
 	@Autowired
-	ProductsDAO productsDao;
+	SaleBoardDAO productsDao;
 
 	@Resource
 	String uploadPath;
@@ -25,12 +25,12 @@ public class ProductsServiceImp implements ProductsService{
 	String uploadImgPath;
 	
 	@Override
-	public List<ProductsVO> getProductList(Criteria cri) {
-		return productsDao.selectProductsList(cri);
+	public List<SaleBoardVO> getSaleBoardList(Criteria cri) {
+		return productsDao.selectSaleBoardList(cri);
 	}
 	
 	@Override
-	public int getTotalCount(ProductsCriteria cri) {
+	public int getTotalCount(SaleBoardCriteria cri) {
 		return productsDao.getTotalCount(cri);
 	}
 
