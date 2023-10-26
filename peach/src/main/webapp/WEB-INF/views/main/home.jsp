@@ -107,34 +107,6 @@
 													Success</a></li>
 											<li class="nav-item"><a href="404.html">404 Error</a></li>
 										</ul></li>
-									<li class="nav-item"><a class="dd-menu collapsed"
-										href="javascript:void(0)" data-bs-toggle="collapse"
-										data-bs-target="#submenu-1-3"
-										aria-controls="navbarSupportedContent" aria-expanded="false"
-										aria-label="Toggle navigation">Shop</a>
-										<ul class="sub-menu collapse" id="submenu-1-3">
-											<li class="nav-item"><a href="product-grids.html">Shop
-													Grid</a></li>
-											<li class="nav-item"><a href="product-list.html">Shop
-													List</a></li>
-											<li class="nav-item"><a href="product-details.html">shop
-													Single</a></li>
-											<li class="nav-item"><a href="cart.html">Cart</a></li>
-											<li class="nav-item"><a href="checkout.html">Checkout</a></li>
-										</ul></li>
-									<li class="nav-item"><a class="dd-menu collapsed"
-										href="javascript:void(0)" data-bs-toggle="collapse"
-										data-bs-target="#submenu-1-4"
-										aria-controls="navbarSupportedContent" aria-expanded="false"
-										aria-label="Toggle navigation">Blog</a>
-										<ul class="sub-menu collapse" id="submenu-1-4">
-											<li class="nav-item"><a href="blog-grid-sidebar.html">Blog
-													Grid Sidebar</a></li>
-											<li class="nav-item"><a href="blog-single.html">Blog
-													Single</a></li>
-											<li class="nav-item"><a href="blog-single-sidebar.html">Blog
-													Single Sibebar</a></li>
-										</ul></li>
 									<li class="nav-item"><a href="contact.html"
 										aria-label="Toggle navigation">Contact Us</a></li>
 								</ul>
@@ -149,12 +121,7 @@
 		<!-- End Header Bottom -->
 	</header>
 	<!-- End Header Area -->
-	<div>
-		<h1>카테고리 확인</h1>
-		<c:forEach items="${categoryList}" var="category">
-			<span>${category.sc_num } : ${category.sc_name }</span>
-		</c:forEach>
-	</div>
+
 
 	<section class="hero-area">
 		<div class="container">
@@ -258,16 +225,16 @@
 					<div class="col-lg-3 col-md-6 col-12">
 						<div class="single-product">
 							<div class="product-image">
-								<!-- 	<img src="assets/images/products/product-1.jpg" alt="#">
+								<img src="resources/img/slider-bg2.jpg" alt="#">
 								<div class="button">
 									<a href="product-details.html" class="btn"><i
 										class="lni lni-cart"></i> Add to Cart</a>
-								</div> -->
+								</div>
 							</div>
 							<div class="product-info">
-								<span class="category">Watches</span>
+								<span class="category">${saleBoard.sb_sc_num}</span>
 								<h4 class="title">
-									<a href="product-grids.html">Xiaomi Mi Band 5</a>
+									<a href="product-grids.html">${saleBoard.sb_name}</a>
 								</h4>
 								<ul class="review">
 									<li><i class="lni lni-star-filled"></i></li>
@@ -276,14 +243,22 @@
 									<li><i class="lni lni-star-filled"></i></li>
 									<li><i class="lni lni-star"></i></li>
 									<li><span>4.0 Review(s)</span></li>
+									<span>/ 좋아요 ${saleBoard.sb_wish} </span>
 								</ul>
+								<div class="item-info">
+								${saleBoard.sb_info}
+								</div>
+								<div>
+								
+								</div>
 								<div class="price">
-									<span>${saleBoard.sb_num}</span> <span>${saleBoard.sb_name}</span>
+								<span>${saleBoard.sb_price}원</span>
+								</div>
+								<%-- 	<span>${saleBoard.sb_num}</span> <span>${saleBoard.sb_name}</span>
 									<span>${saleBoard.sb_info}</span> <span>${saleBoard.sb_price}</span>
 									<span>${saleBoard.sb_wish}</span> <span>${saleBoard.sb_me_num}</span>
 									<span>${saleBoard.sb_ss_num}</span> <span>${saleBoard.sb_sc_num}</span>
-									<span>${saleBoard.sb_date}</span>
-								</div>
+									<span>${saleBoard.sb_date}</span> --%>
 							</div>
 						</div>
 
