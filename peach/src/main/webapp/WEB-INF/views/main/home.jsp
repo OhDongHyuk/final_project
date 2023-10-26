@@ -323,6 +323,10 @@
 	<script src="resources/js/main.js"></script>
 	<script type="text/javascript">
 		//========= Hero Slider 
+		/*
+		참고사이트
+		https://ganlanyuan.github.io/tiny-slider/demo/#customize_wrapper 
+		*/
 		tns({
 			container : '.hero-slider',
 			slideBy : 'page',
