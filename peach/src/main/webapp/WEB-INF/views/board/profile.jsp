@@ -125,7 +125,7 @@
 			 	</div>
 			 	<br/>
 			 	<div style="display:inline;">
-			 		가입일 : ${user.me_date} 판매 중 : <text>${salingProducts.size()+tradingProducts.size()}</text> 판매 완료 : ${finishedProducts.size()}<text>${ss}</text> 당도 : <text>${user.me_sugar}</text> 
+			 		가입일 : ${user.get_me_date(user.me_date)} 판매 중 : <text>${salingProducts.size()+tradingProducts.size()}</text> 판매 완료 : ${finishedProducts.size()}<text>${ss}</text> 당도 : <text>${user.me_sugar}</text> 
 			 	</div>
 			 	<br/>
 			 	<form action="<c:url value='/board/profile'/>" method="post" enctype="multipart/form-data">
@@ -146,7 +146,7 @@
 				<div class="profile-product-detail-text">
 	    			[제품명 : ${products.sb_name}] 
 	    			[카테고리 : ${saleCategory[loop.index]}] 
- 					[게시일 : ${products.sb_date}] 
+ 					[게시일 : ${products.get_sb_date(products.sb_date)}] 
 	    		</div>
 				<div class="profile-product-detail-btn">
 					<button>끌어올리기</button>
