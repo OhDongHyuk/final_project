@@ -107,7 +107,7 @@
 			<c:forEach items="${dbBoardList}" var="boards">
 				<div class="item">
 					<%-- a태그를 통해 해당 상품 번호의 상세정보로 경로 전달 --%>
-					<a href="<c:url value='/salesboard/detail?sb_num=${boards.sb_num}' />" class="item-holder">
+					<a href="<c:url value='/saleboard/detail?sb_num=${boards.sb_num}' />" class="item-holder">
 						<div class="image-holder">
 							<img src="" class="img">
 						</div>

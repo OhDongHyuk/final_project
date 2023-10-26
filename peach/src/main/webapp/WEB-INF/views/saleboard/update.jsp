@@ -135,27 +135,31 @@
 			    //deleteFile[0].addEventListener('click', () => console.log('abc'));
 			  </script>
 		</div>
-	<form action="<c:url value='/salesboard/insert'/>" method="post">
+	<form action="<c:url value='/saleboard/update'/>" method="post">
+		<input type="hidden" name="sb_num" value="${board.sb_num }">
+		<input type="hidden" name="sb_me_num" value="${board.sb_me_num }">
 		<div class="form-group">
 			<label>제목</label>
-			<input type="text" class="form-control" name="sb_name">
+			<input type="text" class="form-control" name="sb_name" value="${board.sb_name }">
 		</div>
 		<div class="form-group">
 			<label>카테고리</label>
 			<select name="sb_sc_num" class="custom-select">
-				<option selected>카테고리 선택</option>
+				<option selected value="${board.sb_sc_num }">${board.sb_sc_name}</option>
 			    <c:forEach items="${dbCategory}" var="dbCategory">
-			    	<option value="${dbCategory.sc_num}">${dbCategory.sc_name}</option>
+			    	<c:if test="${dbCategory.sc_num != board.sb_sc_num}">
+			    		<option value="${dbCategory.sc_num}">${dbCategory.sc_name}</option>
+			    	</c:if>
 			    </c:forEach>
 			</select>
 		</div>
 		<div class="form-group">
 			<label>가격</label>
-			<input type="text" class="form-control" name="sb_price" placeholder="숫자만 입력하세요.">
+			<input type="text" class="form-control" name="sb_price" placeholder="숫자만 입력하세요." value="${board.sb_price }">
 		</div>
 		<div class="form-group">
 			<label>설명</label>
-			<textarea id="summernote" name="sb_info" class="form-control" rows="10"></textarea>
+			<textarea id="summernote" name="sb_info" class="form-control" rows="10">${board.sb_info}</textarea>
 		</div>
 		<button class="btn btn-outline-success col-12">등록</button>
 	</form>

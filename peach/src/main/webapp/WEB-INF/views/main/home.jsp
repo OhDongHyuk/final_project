@@ -8,8 +8,8 @@
 </head>
 <body>
 <h1> 
-	<a href="<c:url value='/salesboard/insert' />" style="color:black; text-decoration:none;">게시글등록</a> 
-	<a href="<c:url value='/salesboard/list' />" style="color:black; text-decoration:none;">게시글보기</a> 
+	<a href="<c:url value='/saleboard/insert' />" style="color:black; text-decoration:none;">게시글등록</a> 
+	<a href="<c:url value='/saleboard/list' />" style="color:black; text-decoration:none;">게시글보기</a> 
 </h1>
 
 </body>

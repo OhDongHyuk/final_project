@@ -24,4 +24,17 @@
 	<select id="selectMemberSugar" resultType="int">
 		select me_sugar from member where me_num = #{sb_me_num}
 	</select>
+	<update id="updateBoard">
+		update sale_board 
+		set 
+			sb_name = #{board.sb_name},
+			sb_sc_num = #{board.sb_sc_num},
+			sb_price = #{board.sb_price},
+			sb_info = #{board.sb_info}
+		where
+			sb_num = #{board.sb_num}
+	</update>
+	<delete id="deleteBoard">
+		delete from sale_board where sb_num = #{sb_num}
+	</delete>
 </mapper>

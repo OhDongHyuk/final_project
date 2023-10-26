@@ -80,4 +80,32 @@ public class SaleBoardServiceImp implements SaleBoardService{
 		return saleBoardDao.selectMemberSugar(sb_me_num);
 	}
 
+	@Override
+	public boolean updateBoard(SaleBoardVO board, MemberVO user) {
+		if(board == null || user == null) {
+			return false;
+		}
+		if(user.getMe_num() != board.getSb_me_num()) {
+			return false;
+		}
+		saleBoardDao.updateBoard(board);
+		return true;
+	}
+
+	@Override
+	public boolean deleteBoard(Integer sb_num, MemberVO user) {
+		if(sb_num == 0) {
+			return false;
+		}
+		if(user == null) {
+			return false;
+		}
+		SaleBoardVO board = saleBoardDao.selectBoard(sb_num);
+		if(board == null || board.getSb_me_num() != user.getMe_num()) {
+			return false;
+		}
+		saleBoardDao.deleteBoard(sb_num);
+		return true;
+	}
+
 }

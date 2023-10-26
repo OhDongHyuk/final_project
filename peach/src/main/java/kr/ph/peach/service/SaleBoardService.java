@@ -22,5 +22,9 @@ public interface SaleBoardService {
 
 	int selectMemberSugar(int sb_me_num);
 
+	boolean updateBoard(SaleBoardVO board, MemberVO user);
+
+	boolean deleteBoard(Integer sb_num, MemberVO user);
+
 	
 }

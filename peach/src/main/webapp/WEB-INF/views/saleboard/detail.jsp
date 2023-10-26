@@ -160,9 +160,17 @@
 			<p class="wish-text">찜 ${board.sb_wish}</p>
 		</div>
 		<div class="button-box">
-			<button type="button" class="wish">찜하기</button>
-			<button type="button" class="chat">대화하기</button>
-			<button type="button" class="pay">피치페이</button>
+			<c:choose>
+				<c:when test="${user != null && user.me_num == board.sb_me_num }">
+					<button type="button" onClick="location.href='<c:url value='/saleboard/update?sb_num=${board.sb_num }'/>'" class="chat">수정하기</button>
+					<button type="button" onClick="location.href='<c:url value='/saleboard/delete?sb_num=${board.sb_num }'/>'" class="pay">삭제하기</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" class="wish">찜하기</button>
+					<button type="button" class="chat">대화하기</button>
+					<button type="button" class="pay">피치페이</button>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
 </body>

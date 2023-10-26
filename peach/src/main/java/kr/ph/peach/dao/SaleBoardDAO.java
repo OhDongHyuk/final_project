@@ -23,4 +23,8 @@ public interface SaleBoardDAO {
 
 	int selectMemberSugar(int sb_me_num);
 
+	void updateBoard(@Param("board")SaleBoardVO board);
+
+	void deleteBoard(Integer sb_num);
+
 }
