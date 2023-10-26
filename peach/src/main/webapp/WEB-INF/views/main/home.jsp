@@ -70,30 +70,10 @@
 						<!-- 카테고리 적는곳 -->
 						<div class="mega-category-menu">
 							<span class="cat-button"><i class="lni lni-menu"></i>카테고리</span>
-							<c:forEach items="${sale_category}" var="category">
-								<li><a href="product-grids.html">${category.sc_num }</a></li>
-							</c:forEach>
-
-
-							<c:forEach items="${typeList}" var="type">
-								<option value="${type.bt_num }">${type.bt_title }</option>
-							</c:forEach>
-
-
 							<ul class="sub-category">
-								<li><a href="product-grids.html">Electronics <i
-										class="lni lni-chevron-right"></i></a>
-								<li><a href="product-grids.html">accessories</a></li>
-								<li><a href="product-grids.html">Televisions</a></li>
-								<li><a href="product-grids.html">best selling</a></li>
-								<li><a href="product-grids.html">top 100 offer</a></li>
-								<li><a href="product-grids.html">sunglass</a></li>
-								<li><a href="product-grids.html">watch</a></li>
-								<li><a href="product-grids.html">man’s product</a></li>
-								<li><a href="product-grids.html">Home Audio & Theater</a></li>
-								<li><a href="product-grids.html">Computers & Tablets </a></li>
-								<li><a href="product-grids.html">Video Games </a></li>
-								<li><a href="product-grids.html">Home Appliances </a></li>
+								<c:forEach items="${categoryList}" var="category">
+									<li><a href="<c:url value='/'/>">${category.sc_name }</a></li>
+								</c:forEach>
 							</ul>
 						</div>
 						<!-- End Mega Category Menu -->
@@ -169,6 +149,12 @@
 		<!-- End Header Bottom -->
 	</header>
 	<!-- End Header Area -->
+	<div>
+		<h1>카테고리 확인</h1>
+		<c:forEach items="${categoryList}" var="category">
+			<span>${category.sc_num } : ${category.sc_name }</span>
+		</c:forEach>
+	</div>
 
 	<section class="hero-area">
 		<div class="container">
