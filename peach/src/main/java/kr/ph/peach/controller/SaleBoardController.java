@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.ph.peach.pagination.PageMaker;
+import kr.ph.peach.pagination.SaleBoardCriteria;
 import kr.ph.peach.service.SaleBoardService;
 import kr.ph.peach.vo.SaleBoardVO;
-import pagination.PageMaker;
-import pagination.SaleBoardCriteria;
 
 @Controller
 public class SaleBoardController {

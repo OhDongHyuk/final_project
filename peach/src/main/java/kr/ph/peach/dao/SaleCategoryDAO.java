@@ -12,6 +12,5 @@ public interface SaleCategoryDAO {
 
 
 	List<SaleCategoryVO> selectSaleCategoryList();
-n
 
 }

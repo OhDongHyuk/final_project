@@ -73,7 +73,7 @@
 							<span class="cat-button"><i class="lni lni-menu"></i>카테고리</span>
 							<ul class="sub-category">
 								<c:forEach items="${categoryList}" var="category">
-									<li><a href="<c:url value='/'/>">${category.sc_name }</a></li>
+									<li><a href="<c:url value='/sale/${category.sc_num}'/>">${category.sc_name }</a></li>
 								</c:forEach>
 							</ul>
 						</div>

@@ -2,15 +2,23 @@ package kr.ph.peach.controller;
 
 
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.ph.peach.pagination.Criteria;
 import kr.ph.peach.pagination.PageMaker;
+import kr.ph.peach.pagination.SaleBoardCriteria;
 import kr.ph.peach.service.SaleBoardService;
 import kr.ph.peach.service.SaleCategoryService;
 import kr.ph.peach.vo.SaleBoardVO;
-
 import kr.ph.peach.vo.SaleCategoryVO;
+
+
 
 @Controller
 public class HomeController {
@@ -23,7 +31,7 @@ public class HomeController {
 	SaleBoardService saleBoardService;
 	
 	@RequestMapping(value = "/")
-	public String home(Model model, Criteria cri) {
+	public String home(Model model, HttpSession session, SaleBoardCriteria cri) {
 		
 		List<SaleCategoryVO> categoryList = saleCategoryService.getSaleCategoryList();
 		cri.setPerPageNum(8);
@@ -32,7 +40,8 @@ public class HomeController {
 		int totalCount = saleBoardService.getTotalCount(cri);
 		
 		
-		PageMaker pm = new PageMaker(8, cri, totalCount);
+		int displayPageNum = 8;
+		PageMaker pm = new PageMaker(displayPageNum, cri, totalCount);
 		System.out.println(pm);
 		System.out.println(categoryList);
 		model.addAttribute("pm", pm);
@@ -41,6 +50,8 @@ public class HomeController {
 		
 		return "/main/home";
 	}
+	
+	
 
 
 }
