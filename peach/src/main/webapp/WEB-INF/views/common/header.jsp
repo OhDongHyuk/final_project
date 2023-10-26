@@ -50,6 +50,5 @@
   </a>	
 </nav>
 <script>
-	let today = new Date();   
-	document.write(today)
+
 </script>

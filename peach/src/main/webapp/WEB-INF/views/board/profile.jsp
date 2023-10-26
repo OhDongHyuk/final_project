@@ -149,7 +149,7 @@
  					[게시일 : ${products.get_sb_date(products.sb_date)}] 
 	    		</div>
 				<div class="profile-product-detail-btn">
-					<button>끌어올리기</button>
+					<button class="update_date">끌어올리기</button>
 					<button>수정</button>
 					<button>삭제</button>
 				</div>
@@ -159,8 +159,13 @@
 	<br>
 	</c:forEach>
 </div>	
-<script>
-
+<script type="text/javascript">
+$(document).ready(function(){
+    $(".update_date").on("click", function(){
+     
+   
+    });
+});
 </script>
 </body>
 </html>

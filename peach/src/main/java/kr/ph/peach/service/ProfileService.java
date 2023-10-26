@@ -11,5 +11,7 @@ public interface ProfileService {
 
 	List<SaleCategoryVO> getProductsByCTNum(int sb_sc_num);
 
+	void updateProductDate(SaleBoardVO saleBoard);
 
+	
 }

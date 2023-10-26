@@ -31,6 +31,15 @@ public class ProfileServiceImp implements ProfileService{
 		 System.out.println("saleCategory"+category);
 		    return category;
 	}
+
+	@Override
+	public void updateProductDate(SaleBoardVO saleBoard) {
+		if(saleBoard == null) {
+			return;
+		}
+		profileDao.updateBoardViews(saleBoard);
+
+	}
 	
 	
 }

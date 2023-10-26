@@ -1,7 +1,13 @@
 package kr.ph.peach.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,6 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ph.peach.pagination.ProfileCriteria;
 import kr.ph.peach.service.ProfileService;
@@ -63,6 +73,24 @@ public class ProfileController {
         }
         
         return "/board/profile"; 
+    }
+    @PostMapping("/board/profile")
+    public String updateDate(@RequestParam("sb_num") Integer sb_num, Model model) {
+    	LocalDate now = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        String formattedDate = now.format(formatter);
+        
+        // 문자열을 java.sql.Date로 변환
+        Date sqlDate = Date.valueOf(formattedDate);
+        
+        // 게시일 업데이트
+        SaleBoardVO saleBoard = new SaleBoardVO();
+        saleBoard.setSb_num(sb_num);
+        saleBoard.setSb_date(sqlDate);
+        profileService.updateProductDate(saleBoard);//여기부터 시작 10-26
+       
+        
+        return "redirect:/board/profile"; 
     }
     
     @GetMapping("/board/profile_management")

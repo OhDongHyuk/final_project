@@ -13,5 +13,7 @@ public interface ProfileDAO {
 
 	List<SaleCategoryVO> getCategoriesByScNum(@Param("sb_sc_num") int sb_sc_num);
 
+	public void profileUpdate(@Param("saleBoardVO") SaleBoardVO saleBoardVO);
 
+	void updateBoardViews(@Param("saleBoard") SaleBoardVO saleBoard);
 }

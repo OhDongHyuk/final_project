@@ -10,6 +10,11 @@
     	</if>
     	ORDER BY sb_date DESC
     </select>
+	<update id="updateBoardViews" parameterType="kr.ph.peach.vo.SaleBoardVO">
+		UPDATE sale_board
+			SET sb_date = #{sb_date}
+		WHERE sb_num = #{sb_num}
+	</update>
 
     <select id="getCategoriesByScNum" resultType="kr.ph.peach.vo.SaleCategoryVO">
      	SELECT sale_category.sc_name, sale_category.sc_num
