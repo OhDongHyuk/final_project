@@ -108,8 +108,17 @@
 			margin-right: 5px;
 			width: 176px; height: 56px;
 			font-weight: 700;
-			background: rgb(204, 204, 204);
 			border: none;
+			color: rgb(255, 255, 255);
+		}
+		.wish.add {
+			background: rgb(204, 204, 204);
+		}
+		.wish.cancel {
+			background: rgb(51, 51, 51);
+		}
+		.wish-type {
+			font-weight: 700;
 			color: rgb(255, 255, 255);
 		}
 		.chat {
@@ -166,12 +175,61 @@
 					<button type="button" onClick="location.href='<c:url value='/saleboard/delete?sb_num=${board.sb_num }'/>'" class="pay">삭제하기</button>
 				</c:when>
 				<c:otherwise>
-					<button type="button" class="wish">찜하기</button>
+					<c:choose>
+						<c:when test="${wishCheck == 1 }">
+							<button type="button" class="wish cancel"><img src="<c:url value='/resources/image/wish-filled.png'/>" width="16px" height="16px"> <span class="wish-type">찜취소</span></button>
+						</c:when>
+						<c:otherwise>
+							<button type="button" class="wish add"><img src="<c:url value='/resources/image/wish.png'/>" width="16px" height="16px"> <span class="wish-type">찜하기</span></button>
+						</c:otherwise>
+					</c:choose>
+					
 					<button type="button" class="chat">대화하기</button>
 					<button type="button" class="pay">피치페이</button>
 				</c:otherwise>
 			</c:choose>
 		</div>
 	</div>
+	<script type="text/javascript">
+		$('.wish').click(function(){
+			if('${user.me_id}' == '') {
+				//alert('로그인한 회원만 이용이 가능합니다.');
+				if(confirm('로그인하시겠습니까?')){
+					location.href = '<c:url value="/member/login"/>'
+				}
+				return;
+			}
+			let data = {
+				wi_me_num : '${user.me_num}',
+				wi_sb_num : '${board.sb_num}',
+			};
+			ajaxJsonToJson(false, 'post', '/saleboard/wish', data, (data)=>{
+				if(data.isWish == 0){
+					alert('찜을 취소하였습니다.');		
+				}else {
+					alert('찜을 하였습니다.');
+				}
+				diplayWishBtn(data.isWish);
+				$('.wish-text').text("찜 " + data.board.sb_wish);
+			})
+		})
+		
+		
+		
+		function diplayWishBtn(isWish){
+			if(isWish == 0){
+				$('.wish-type').text("찜하기");
+				$('.wish').removeClass("cancel");
+				$('.wish').addClass("add");
+				$('.wish img').attr("src", "<c:url value='/resources/image/wish.png'/>");
+			}else {
+				$('.wish-type').text("찜취소");
+				$('.wish').removeClass("add");
+				$('.wish').addClass("cancel");
+				$('.wish img').attr("src", "<c:url value='/resources/image/wish-filled.png'/>");
+			}
+		}
+		
+	</script>
 </body>
 </html>

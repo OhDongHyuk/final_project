@@ -5,6 +5,7 @@ import java.util.List;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
 import kr.ph.peach.vo.SaleCategoryVO;
+import kr.ph.peach.vo.WishVO;
 
 public interface SaleBoardService {
 
@@ -25,6 +26,12 @@ public interface SaleBoardService {
 	boolean updateBoard(SaleBoardVO board, MemberVO user);
 
 	boolean deleteBoard(Integer sb_num, MemberVO user);
+
+	void insertWish(WishVO wish);
+
+	WishVO selectWish(int wi_me_num, int wi_sb_num);
+
+	void deleteWish(WishVO wish);
 
 	
 }

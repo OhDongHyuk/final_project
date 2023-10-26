@@ -11,6 +11,7 @@ import kr.ph.peach.dao.SaleBoardDAO;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
 import kr.ph.peach.vo.SaleCategoryVO;
+import kr.ph.peach.vo.WishVO;
 
 @Service
 public class SaleBoardServiceImp implements SaleBoardService{
@@ -106,6 +107,35 @@ public class SaleBoardServiceImp implements SaleBoardService{
 		}
 		saleBoardDao.deleteBoard(sb_num);
 		return true;
+	}
+
+	@Override
+	public void insertWish(WishVO wish) {
+		if(wish == null) {
+			return;
+		}
+		saleBoardDao.insertWish(wish);
+		saleBoardDao.updateWish(wish.getWi_sb_num(), 1);
+		
+	}
+
+	@Override
+	public WishVO selectWish(int wi_me_num, int wi_sb_num) {
+		if(wi_me_num == 0 || wi_sb_num == 0) {
+			return null;
+		}
+		
+		return saleBoardDao.selectWish(wi_me_num, wi_sb_num);
+	}
+
+	@Override
+	public void deleteWish(WishVO wish) {
+		if(wish == null) {
+			return;
+		}
+		saleBoardDao.deleteWish(wish);
+		saleBoardDao.updateWish(wish.getWi_sb_num(), -1);
+		
 	}
 
 }

@@ -1,6 +1,8 @@
 package kr.ph.peach.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -9,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ph.peach.service.MemberService;
 import kr.ph.peach.service.SaleBoardService;
@@ -18,6 +22,7 @@ import kr.ph.peach.util.Message;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
 import kr.ph.peach.vo.SaleCategoryVO;
+import kr.ph.peach.vo.WishVO;
 
 @Controller
 @RequestMapping("/saleboard")
@@ -33,8 +38,8 @@ public class SaleBoardController {
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		Message msg;
 		if(user == null) {
-			msg = new Message("/", "로그인이 필요합니다.");
-			model.addAttribute(msg);
+			msg = new Message("saleboard/list", "로그인이 필요합니다.");
+			model.addAttribute("msg", msg);
 			return "message";
 		}
 		
@@ -69,6 +74,16 @@ public class SaleBoardController {
 		board.setSb_me_nickname(saleBoardService.selectMemberNickname(board.getSb_me_num()));
 		board.setSb_sc_name(saleBoardService.selectCategoryName(board.getSb_sc_num()));
 		board.setSb_me_sugar(saleBoardService.selectMemberSugar(board.getSb_me_num()));
+		if(user != null && board != null) {
+			WishVO dbWish = saleBoardService.selectWish(user.getMe_num(), board.getSb_num());			
+			int wishCheck = 0;
+			if(dbWish == null) {
+				wishCheck = 0;
+			} else {
+				wishCheck = 1;
+			}
+			model.addAttribute("wishCheck", wishCheck);
+		}
 		model.addAttribute("board", board);
 		model.addAttribute("user", user);
 		return "/saleboard/detail";
@@ -84,7 +99,7 @@ public class SaleBoardController {
 		MemberVO user = (MemberVO)session.getAttribute("user");
 		if(user == null || board == null || user.getMe_num() != board.getSb_me_num()) {
 			Message msg = new Message("/saleboard/list", "잘못된 접근입니다.");
-			model.addAttribute(msg);
+			model.addAttribute("msg", msg);
 			return "message";
 		}
 		model.addAttribute("board", board);
@@ -114,5 +129,24 @@ public class SaleBoardController {
 		}
 		model.addAttribute("msg", msg);
 		return "message";
+	}
+	
+	@ResponseBody
+	@PostMapping("/wish")
+	public Map<String, Object> ajaxTest(@RequestBody WishVO wish){
+		Map<String, Object> map = new HashMap<String, Object>();
+		WishVO dbWish = saleBoardService.selectWish(wish.getWi_me_num(), wish.getWi_sb_num());
+		int isWish = 0;
+		if(dbWish == null) {
+			saleBoardService.insertWish(wish);
+			isWish = 1;
+		} else {
+			saleBoardService.deleteWish(wish);
+			isWish = 0;
+		}
+		SaleBoardVO board = saleBoardService.selectBoard(wish.getWi_sb_num());
+		map.put("isWish", isWish);
+		map.put("board", board);
+		return map;
 	}
 }

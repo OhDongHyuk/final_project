@@ -37,4 +37,20 @@
 	<delete id="deleteBoard">
 		delete from sale_board where sb_num = #{sb_num}
 	</delete>
+	<insert id="insertWish">
+		insert into wish(wi_me_num, wi_sb_num) values(#{wish.wi_me_num}, #{wish.wi_sb_num})
+	</insert>
+	<select id="selectWish" resultType="kr.ph.peach.vo.WishVO">
+		select * from wish where wi_me_num = #{wi_me_num} and wi_sb_num = #{wi_sb_num}
+	</select>
+	<delete id="deleteWish">
+		delete from wish where wi_me_num = #{wish.wi_me_num} and wi_sb_num = #{wish.wi_sb_num}
+	</delete>
+	<update id="updateWish">
+		update sale_board
+		set
+			sb_wish = sb_wish + #{i}
+		where
+			sb_num = #{wi_sb_num}
+	</update>
 </mapper>
