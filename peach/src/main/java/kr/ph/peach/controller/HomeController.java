@@ -1,5 +1,6 @@
 package kr.ph.peach.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import kr.ph.peach.vo.SaleCategoryVO;
 @Controller
 public class HomeController {
 	
+
 	@Autowired
 	SaleCategoryService saleCategoryService;
 	
@@ -25,4 +27,5 @@ public class HomeController {
 		model.addAttribute("scgList",scgList);
 		return "/main/home";
 	}
+
 }
