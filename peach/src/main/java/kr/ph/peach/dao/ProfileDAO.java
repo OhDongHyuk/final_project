@@ -16,4 +16,5 @@ public interface ProfileDAO {
 	public void profileUpdate(@Param("saleBoardVO") SaleBoardVO saleBoardVO);
 
 	void updateBoardViews(@Param("saleBoard") SaleBoardVO saleBoard);
+
 }

@@ -21,4 +21,5 @@
 		FROM sale_category
 		WHERE sc_num = #{sb_sc_num}
     </select>
+ 
 </mapper>

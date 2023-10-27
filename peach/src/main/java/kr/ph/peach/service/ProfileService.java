@@ -13,5 +13,6 @@ public interface ProfileService {
 
 	void updateProductDate(SaleBoardVO saleBoard);
 
+
 	
 }

@@ -40,6 +40,7 @@ public class ProfileServiceImp implements ProfileService{
 		profileDao.updateBoardViews(saleBoard);
 
 	}
+
 	
 	
 }

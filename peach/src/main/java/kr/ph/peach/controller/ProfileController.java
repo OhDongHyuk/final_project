@@ -80,7 +80,7 @@ public class ProfileController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String formattedDate = now.format(formatter);
         
-        // 문자열을 java.sql.Date로 변환
+        // 문자열을 Date로 변환
         Date sqlDate = Date.valueOf(formattedDate);
         
         // 게시일 업데이트
