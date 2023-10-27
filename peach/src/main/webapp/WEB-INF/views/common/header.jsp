@@ -42,7 +42,7 @@
 								<li class="inner-item"><a href="<c:url value='/sale/insert'/>">제품등록</a></li>
 							</c:if>
 							<c:if test="${user != null && user.me_au == 'admin' }">
-								<li class="inner-item"><a href="<c:url value='/'/>">로그아웃</a></li>
+								<li class="inner-item"><a href="<c:url value='/'/>">관리자 메뉴</a></li>
 							</c:if>
 						</ul>
 					</div>
