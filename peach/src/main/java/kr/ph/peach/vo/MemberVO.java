@@ -1,7 +1,5 @@
 package kr.ph.peach.vo;
 
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import lombok.Data;
