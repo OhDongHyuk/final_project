@@ -29,6 +29,8 @@ public interface SaleBoardDAO {
 
 	int selectMemberSugar(int sb_me_num);
 
+	int getTotalCount(@Param("cri")SaleBoardCriteria cri);
+	
 	void updateBoard(@Param("board")SaleBoardVO board);
 
 	void deleteBoard(Integer sb_num);

@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ph.peach.dao.SaleBoardDAO;
-
-import kr.ph.peach.pagination.Criteria;
 import kr.ph.peach.pagination.SaleBoardCriteria;
+import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
+import kr.ph.peach.vo.SaleCategoryVO;
+import kr.ph.peach.vo.WishVO;
 
 @Service
 public class SaleBoardServiceImp implements SaleBoardService {
@@ -33,6 +34,7 @@ public class SaleBoardServiceImp implements SaleBoardService {
 			cri = new SaleBoardCriteria();
 		}
 		return saleBoardDao.getTotalCount(cri);
+	}
 
 	@Override
 	public boolean insertBoard(SaleBoardVO saleBoard, MemberVO user) {

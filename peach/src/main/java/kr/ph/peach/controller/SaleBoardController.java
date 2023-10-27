@@ -11,16 +11,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ph.peach.pagination.PageMaker;
 import kr.ph.peach.pagination.SaleBoardCriteria;
-
 import kr.ph.peach.service.SaleBoardService;
 import kr.ph.peach.util.Message;
 import kr.ph.peach.vo.MemberVO;
 import kr.ph.peach.vo.SaleBoardVO;
-
 import kr.ph.peach.vo.SaleCategoryVO;
 import kr.ph.peach.vo.WishVO;
 
@@ -31,6 +32,25 @@ public class SaleBoardController {
 	
 	@Autowired
 	SaleBoardService saleBoardService;
+	
+	@GetMapping("/{sc_num}")
+	public String productsList(@PathVariable("sc_num") int categoryId, Model model, HttpSession session, SaleBoardCriteria cri) {
+		List<SaleBoardVO> prList = saleBoardService.getSaleBoardList(cri);
+		for(SaleBoardVO tmp : prList) {
+			prList.get(prList.indexOf(tmp)).setSb_me_nickname(saleBoardService.selectMemberNickname(tmp.getSb_me_num()));
+		}
+		cri.setSc_num(categoryId);
+		//전체 게시글 수 
+		int totalCount = saleBoardService.getTotalCount(cri);
+		//페이지네이션에서 최대 페이지 개수 
+		int displayPageNum = 20;
+		PageMaker pm = new PageMaker(displayPageNum, cri, totalCount);
+		
+		model.addAttribute("categoryId", categoryId);
+		model.addAttribute("pm", pm);
+		model.addAttribute("prList",prList);
+		return "/saleboard/saleBoard";
+	}
 	
 	@GetMapping("/insert")
 	public String insert(Model model, HttpSession session) {
@@ -59,12 +79,6 @@ public class SaleBoardController {
 		return "message";
 	}
 	
-	@RequestMapping("/sale/insert")
-	public String insert(Model model) {
-		
-		return "/sale/insert";
-	}
-
 	@GetMapping("/list")
 	public String list(Model model) {
 		List<SaleBoardVO> dbBoardList = saleBoardService.selectAllBoard();

@@ -18,12 +18,12 @@
 	              value="jdbc:mysql://localhost:3306/peach?useSSL=false&amp;serverTimezone=Asia/Seoul">
 	    </property>
 	    <property name="username" value="root"></property>
-	    <property name="password" value="Zx045011!@#"></property>
+	    <property name="password" value="root"></property>
 	</bean> 
 	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
 	    <property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
-	<mybatis-spring:scan base-package="kr.ph.peach.dao"/>
+	<mybatis-spring:scan base-package="kr.ph.peach.dao"/>	 		
 </beans>

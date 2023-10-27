@@ -1,8 +1,10 @@
 package kr.ph.peach.vo;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,7 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class SaleBoardVO {
 	private int sb_num, sb_wish, sb_price, sb_me_num, sb_ss_num, sb_sc_num, sb_me_sugar;
-	private String sb_name, sb_info, sb_date, sb_me_nickname, sb_sc_name;
+	private String sb_name, sb_info, sb_me_nickname, sb_sc_name;
+	private String sb_date;
+	
+	private List<SaleImageVO> saleImageVOList;
 	
 	public SaleBoardVO(String sb_name, int sb_price, String sb_info, int sb_sc_num) {
 		this.sb_name = sb_name;
@@ -23,10 +28,6 @@ public class SaleBoardVO {
 		DecimalFormat decFormat = new DecimalFormat("###,###");
 		return decFormat.format(sb_price);
 	}
-	
-	public String get_sb_date(Date sb_date) {		
-		SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return timeFormat.format(sb_date);
-	}	
+
 
 }
