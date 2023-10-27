@@ -13,7 +13,7 @@
 			<c:forEach items="${prList}" var="pr">
 				<div class="item">
 					<%-- a태그를 통해 해당 상품 번호의 상세정보로 경로 전달 --%>
-					<a href="<c:url value='/sale/detail?sb_num=${pr.sb_num}' />" class="item-holder">
+					<a href="<c:url value='/saleboard/detail?sb_num=${pr.sb_num}' />" class="item-holder">
 						<div class="image-holder">
 							<img class="item" width="100%" height="194" src="<c:url value='/img/${pr.saleImageVOList.size() != 0 ? pr.saleImageVOList.get(0).si_name :\"\" }'/>">
 						</div>
@@ -35,7 +35,7 @@
 								${pr.sb_me_nickname}
 							</div>	
 							<div class="date">
-								${pr.get_sb_date(pr.sb_date)}
+								${pr.sb_date}
 							</div>
 						</div>
 					</a>
@@ -47,26 +47,26 @@
 	<ul class="pagination">
 		<c:if test="${pm.prev}">
 			<li class="page-item">
-				<a class="page-link" href="<c:url value='/sale/${pm.cri.sc_num}${pm.cri.getUrl(pm.startPage-1)}'/>">이전</a>
+				<a class="page-link" href="<c:url value='/saleboard/${pm.cri.sc_num}${pm.cri.getUrl(pm.startPage-1)}'/>">이전</a>
 			</li>
 		</c:if>
 		<c:forEach begin="${pm.startPage}" end="${pm.endPage}" var="i">
 			<c:choose>
 	            <c:when test="${i == pm.cri.page}">
 	                <li class="page-item current "> <!-- 현재 페이지일 때 current 클래스 추가 -->
-	                    <a class="page-link" href="<c:url value='/sale/${pm.cri.sc_num}${pm.cri.getUrl(i)}'/>">${i}</a>
+	                    <a class="page-link" href="<c:url value='/saleboard/${pm.cri.sc_num}${pm.cri.getUrl(i)}'/>">${i}</a>
 	                </li>
 	            </c:when>
 	            <c:otherwise>
 	                <li class="page-item">
-	                    <a class="page-link" href="<c:url value='/sale/${pm.cri.sc_num}${pm.cri.getUrl(i)}'/>">${i}</a>
+	                    <a class="page-link" href="<c:url value='/saleboard/${pm.cri.sc_num}${pm.cri.getUrl(i)}'/>">${i}</a>
 	                </li>
 	            </c:otherwise>
        		</c:choose>
 		</c:forEach>
 		<c:if test="${pm.next}">
 			<li class="page-item">
-				<a class="page-link" href="<c:url value='/sale/${pm.cri.sc_num}${pm.cri.getUrl(pm.endPage+1)}'/>">다음</a>
+				<a class="page-link" href="<c:url value='/saleboard/${pm.cri.sc_num}${pm.cri.getUrl(pm.endPage+1)}'/>">다음</a>
 			</li>
 		</c:if>
 	</ul>	

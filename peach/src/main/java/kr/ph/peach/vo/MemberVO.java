@@ -1,33 +1,25 @@
 package kr.ph.peach.vo;
 
+
 import java.sql.Date;
+
 import java.text.SimpleDateFormat;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//vo 패키지에 파일이 없으면 vo 패키지가 추가되지 않아 임시 파일을 등록함.
 @Data
-//기본생성자
 @NoArgsConstructor
 public class MemberVO {
-	
-	int me_num;
-	String me_id;
-	Date me_date;
-	String me_pw;
-	int me_sugar;
-	
-	 public MemberVO(int me_num, String me_id, Date me_date, String me_pw, int me_sugar) {
-	        this.me_num = me_num;
-	        this.me_id = me_id;
-	        this.me_date = me_date;
-	        this.me_pw = me_pw;
-	        this.me_sugar = me_sugar;
-	    }
-	 
-	 public String get_me_date(Date me_date) {      
-	      SimpleDateFormat timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	      return timeFormat.format(me_date);
-	  } 
-	 
+	private int me_num, me_sugar, me_st_num, me_ci_num, me_point;
+	private String me_id, me_pw, me_name, me_acc, me_phone, me_nick, me_au, me_date, me_bk_name;
+
+	public String getme_date_str() {
+		if(me_date == null) {
+			return "";
+		}
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		return format.format(me_date);
+
 }

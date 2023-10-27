@@ -1,19 +1,46 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!doctype html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+
+
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
+<meta charset="EUC-KR">
+<style>
+.imsi-box{
+	min-height: 500px;
+	padding-top: 50px;
+}
+
+</style>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>로그인</h1>
-	<form action="<c:url value='/member/login'/>" method="post">
-		<div class="form-group">
-			<input type="text" name="me_id" class="form-control" placeholder="아이디">
+	<div class="imsi-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-12 custom-padding-right">
+					<form action="<c:url value='/member/login'/>" method="post">
+						<div class="form-group">
+							<label>아이디</label> <input type="text" class="form-control"
+								name="me_id">
+						</div>
+						<div class="form-group">
+							<label>비번</label> <input type="password" class="form-control"
+								name="me_pw">
+						</div>
+						<div class="form-check-inline">
+							<label class="form-check-label"> <input type="checkbox"
+								class="form-check-input" value="true" name="autoLogin">자동로그인
+							</label>
+						</div>
+						<button class="btn btn-outline-warning col-12">로그인</button>
+					</form>
+				</div>
+			</div>
 		</div>
-		<button class="btn btn-success col-12">로그인</button>
-	</form>
+	</div>
 </body>
-
 </html>
+
