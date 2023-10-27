@@ -23,7 +23,7 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
-	@GetMapping("/member/signup")
+	@GetMapping("/signup")
 	public String signup(Model model) {
 		
 		model.addAttribute("title", "회원가입");

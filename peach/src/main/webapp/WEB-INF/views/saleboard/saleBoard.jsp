@@ -8,7 +8,7 @@
 </head>
 <body>	
 	<div class="wrapper">
-		<div class="container">
+		<div class="containerboard">
 			<%-- forEach를 통해 판매상품 리스트를 컨트롤러에서 가져와서 출력 --%>
 			<c:forEach items="${prList}" var="pr">
 				<div class="item">
@@ -72,18 +72,16 @@
 	</ul>	
 </body>
 	<style>
-		body {
-			max-width: 1035px; /* 최대 너비를 1035px로 고정 */
-        	margin: 0 auto; /* 가운데 정렬 */
-		}
-		*, ::before, ::after {
+		::before, ::after {
 			box-sizing: border-box;
 		}
 		.wrapper {
+			max-width: 1035px; /* 최대 너비를 1035px로 고정 */
+        	margin: 0 auto; /* 가운데 정렬 */
 			margin-bottom: 40px;
 			display: block;
 		}
-		.container {
+		.containerboard {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: flex-start; /* 왼쪽 정렬 */
