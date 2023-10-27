@@ -1,28 +1,16 @@
 package kr.ph.peach.vo;
 
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 public class SaleBoardVO {
-	private int sb_num;
-	private String sb_name;
-	private Integer sb_price;
-	private String sb_info;
-	private Date sb_date;
-	private int sb_wish;
-	private int sb_me_num;
-	private int sb_ss_num;
-	private int sb_sc_num;
-	private String sb_me_nickname;
-	
-	private List<SaleImageVO> saleImageVOList;
+	private int sb_num, sb_wish, sb_price, sb_me_num, sb_ss_num, sb_sc_num, sb_me_sugar;
+	private String sb_name, sb_info, sb_date, sb_me_nickname, sb_sc_name;
 	
 	public SaleBoardVO(String sb_name, int sb_price, String sb_info, int sb_sc_num) {
 		this.sb_name = sb_name;

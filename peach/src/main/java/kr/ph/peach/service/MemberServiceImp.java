@@ -16,7 +16,6 @@ public class MemberServiceImp implements MemberService {
 	@Autowired
 	private MemberDAO memberDao;
 
-
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -50,7 +49,6 @@ public class MemberServiceImp implements MemberService {
 		// 비번 암호화
 		String encPw = passwordEncoder.encode(member.getMe_pw());
 		member.setMe_pw(encPw);
-		System.out.println(member);
 		// 회원가입
 		return memberDao.insertMember(member);
 	}
@@ -75,8 +73,6 @@ public class MemberServiceImp implements MemberService {
 		if(member.getMe_pw().equals(user.getMe_pw())) {
 			return user;
 		}
-		System.out.println(member);
-		System.out.println(user);
 		return null;
 		
 		
