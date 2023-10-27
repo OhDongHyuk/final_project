@@ -6,10 +6,12 @@ import kr.ph.peach.vo.MemberVO;
 
 public interface MemberDAO {
 
-	MemberVO selectMember(@Param("me_id")String me_id);
-
 	boolean insertMember(@Param("member")MemberVO member);
 
-	void updateMemberSession(@Param("user")MemberVO user);
+	MemberVO selectMember(@Param("id")String id);
+
+	void updateMemberSession(@Param("member")MemberVO user);
+
+	MemberVO selectMemberBySessionId(@Param("session_id")String sId);
 
 }

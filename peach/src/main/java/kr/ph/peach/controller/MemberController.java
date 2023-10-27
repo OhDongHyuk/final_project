@@ -9,11 +9,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ph.peach.service.MemberService;
 import kr.ph.peach.util.Message;
 import kr.ph.peach.vo.MemberVO;
-
 
 @Controller
 @RequestMapping("/member")
@@ -23,24 +24,28 @@ public class MemberController {
 
 	private MemberService memberService;
 
-	
-
-	@GetMapping("/signup")
-	public String signup() {
+	@GetMapping("/member/signup")
+	public String signup(Model model) {
 		
+		model.addAttribute("title", "회원가입");
 		return "/member/signup";
 	}
 	
-	@PostMapping(value="/signup")
-	public String signupPost(MemberVO member, Model model) {
-		Message msg = new Message("/member/signup", "회원 가입에 실패했습니다.");
+@PostMapping("/member/signup")
+	public String signupPost(MemberVO member,Model model) {
 		
-		if(memberService.signup(member)) {
-			msg = new Message("/", "회원 가입에 성공했습니다.");
+		//서비스에게 회원가입 시켜야 함 => 회원정보를 주면서 => 가입여부를 알려달라고 함
+		boolean res = memberService.signup(member);
+		if(res) {
+			model.addAttribute("msg", "회원가입 성공!");
+			model.addAttribute("url", "");
+		}else {
+			model.addAttribute("msg", "회원가입 실패!");
+			model.addAttribute("url", "member/signup");
 		}
-		model.addAttribute("msg", msg);
-		return "message";
+		return "/main/message";
 	}
+
 	@GetMapping("/login")
 	public String login() {
 		
@@ -83,6 +88,15 @@ public class MemberController {
 		model.addAttribute("msg", msg);
 		return "message";
 
+	}
+	
+	@ResponseBody
+	@PostMapping("/member/id/check")
+	public boolean idCheck(@RequestParam("id") String id){
+		System.out.println(id);
+		boolean res= memberService.checkId(id);
+		System.out.println(res);
+		return res;
 	}
 	
 }

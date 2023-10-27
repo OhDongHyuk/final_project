@@ -31,6 +31,7 @@ public class HomeController {
 	SaleBoardService saleBoardService;
 	
 	@RequestMapping(value = "/")
+
 	public String home(Model model, HttpSession session, SaleBoardCriteria cri) {
 		
 		List<SaleCategoryVO> categoryList = saleCategoryService.getSaleCategoryList();
@@ -47,6 +48,7 @@ public class HomeController {
 		model.addAttribute("pm", pm);
 		model.addAttribute("list", list);
 		model.addAttribute("categoryList", categoryList);
+
 		
 		return "/main/home";
 	}
