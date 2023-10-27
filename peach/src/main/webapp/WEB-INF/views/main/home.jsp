@@ -7,9 +7,19 @@
 	<title>스프링</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+	<nav class="navbar navbar-expand-sm bg-light" href="<c:url value='/' />">
+	  <ul class="navbar-nav">
+	    <li class="nav-item">
+	      <a class="nav-link" href="<c:url value='/member/signup' />">회원가입</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">Link 2</a>
+	    </li>
+	    <li class="nav-item">
+	      <a class="nav-link" href="#">Link 3</a>
+	    </li>
+	  </ul>
+	</nav>
 
 </body>
 </html>
