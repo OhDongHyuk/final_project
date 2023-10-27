@@ -43,4 +43,6 @@ public interface SaleBoardDAO {
 
 	void updateWish(@Param("wi_sb_num")int wi_sb_num, @Param("i")int i);
 
+	List<SaleBoardVO> selectMainSaleBoardList(@Param("cri")SaleBoardCriteria cri);
+
 }

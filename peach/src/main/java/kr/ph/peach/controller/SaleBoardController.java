@@ -45,7 +45,7 @@ public class SaleBoardController {
 		//페이지네이션에서 최대 페이지 개수 
 		int displayPageNum = 20;
 		PageMaker pm = new PageMaker(displayPageNum, cri, totalCount);
-		
+		System.out.println(prList);
 		model.addAttribute("categoryId", categoryId);
 		model.addAttribute("pm", pm);
 		model.addAttribute("prList",prList);

@@ -84,13 +84,4 @@ public class MemberController {
 		return "message";
 	}
 	
-	@ResponseBody
-	@PostMapping("/id/check")
-	public boolean idCheck(@RequestParam("id") String id){
-		System.out.println(id);
-		boolean res= memberService.checkId(id);
-		System.out.println(res);
-		return res;
-	}
-	
 }

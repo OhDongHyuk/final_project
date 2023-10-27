@@ -14,6 +14,7 @@
 		<result property="sb_ss_num" column="sb_ss_num"/>
 		<result property="sb_sc_num" column="sb_sc_num"/>
 		<collection property="saleImageVOList" ofType="kr.ph.peach.vo.SaleImageVO" column="sb_num" select="selectSaleBoardImageList"/>
+		<collection property="saleCategoryVO" ofType="kr.ph.peach.vo.SaleCategoryVO" column="sb_sc_num" select="saleCategoryProduction"/>
 	</resultMap>
 	<insert id="insertBoard">
 		insert into sale_board(sb_name, sb_price, sb_info, sb_date, sb_me_num, sb_sc_num) values(#{salesBoard.sb_name}, #{salesBoard.sb_price}, #{salesBoard.sb_info}, #{salesBoard.sb_date}, #{salesBoard.sb_me_num}, #{salesBoard.sb_sc_num})
@@ -72,7 +73,10 @@
 			sale_board
 		where
 			sb_ss_num = 1
-			and sb_sc_num = #{cri.sc_num}
+			<if test="cri.sc_num != 0">
+			and 
+				sb_sc_num = #{cri.sc_num}
+			</if>
 		order by
 			sb_date desc
 		limit #{cri.pageStart}, #{cri.perPageNum}
@@ -95,4 +99,18 @@
 	<select id="selectSaleBoardImageList" resultType="kr.ph.peach.vo.SaleImageVO">
 		select * from sale_image where si_key = #{sb_num} and si_table = "sale_board"
 	</select>
+		<select id="selectMainSaleBoardList"
+		resultMap="SaleBoardVO">
+		select * from sale_board order by sb_num desc
+		limit #{cri.pageStart},
+		#{cri.perPageNum}
+	</select>
+	<select id="selectSaleBoardCount" resultType="int">
+		select count(*) from
+		sale_board
+	</select>
+	<select id="saleCategoryProduction" resultType="kr.ph.peach.vo.SaleCategoryVO">
+		select * from sale_category where sc_num = #{sb_sc_num}
+	</select>
+	
 </mapper>

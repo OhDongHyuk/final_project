@@ -156,4 +156,12 @@ public class SaleBoardServiceImp implements SaleBoardService {
 		
 	}
 
+	@Override
+	public List<SaleBoardVO> getMainSaleBoardList(SaleBoardCriteria cri) {
+		if(cri == null) {
+			cri = new SaleBoardCriteria();
+		}
+		return saleBoardDao.selectMainSaleBoardList(cri);
+	}
+
 }
